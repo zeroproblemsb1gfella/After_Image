@@ -1,0 +1,11 @@
+{%extends 'main/base.html'%}
+
+{%block content%}
+<h3>{{ls.name}}</h3>
+<ul>
+    {% for movie in ls.movie_set.all %}
+        <a href= "{%url 'movie' ls.name movie.title%}">{{movie.title}}</a>
+        <br>
+    {%endfor%}
+</ul>
+{%endblock%}

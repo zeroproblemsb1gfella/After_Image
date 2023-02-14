@@ -1,0 +1,75 @@
+{%extends 'main/base.html'%}
+
+{%block content%}
+<h3>Home Page</h3>
+
+<h5>What is After Image?</h5>
+<body>
+    Content is everywhere more than ever. Sports, social media, tv, film, and vertical media are among a sea of
+products competing for our attention daily. Film is one of those mediums that requires the most attention and time.
+Because of this, social media around film has become focused primarily on ratings or how ”good” a piece of content
+is. With attention in limited supply, these ratings have become instrumental in sifting through everything to find
+something worth their time. Rotten Tomatoes is a crucial example of this, with the Tomatometer becoming a key
+indicator of a film's success. But this obsession with criticism has, in our opinion at After Image, proved detrimental
+to the viewing experience. Instead of enjoying a movie and discussing its themes, the audience's reaction is more
+attuned to the Rotten Tomatoes approach.
+<br>
+<br>
+    After Image is a social media discussion platform that has ten movies highlighted each month, each with 
+different budgets, languages, mediums and time periods. Users can be part of a global film club to watch and
+discuss the same films each month. Its a place where advertising, Rotten Tomatoes and ratings matter less and where deciding
+what to watch is less tiresome.
+<br>
+<br>
+    Users can log into an account, create a profile, browse through different films and read the posts and discussion threads
+associated with each film. They can contribute to the discussion, create threads, and save/favorite posts they enjoy. Film criticism 
+is still welcome but so is analysis or any sort of engagement. 
+</body>
+
+<h5>Our Mission</h5>
+<body>
+    Our purpose with After Image is, first and foremost, to foster an online community for genuine engagement
+and love for film. Different features will be proposed, created, removed and adapted to serve that goal.
+</body>
+
+<h5>
+    Current Constraints on 10 Films
+</h5>
+
+<body>
+    <ul>
+        <li>4 New Releases</li>
+        <li>1 Local Film</li>
+        <li>1 Documentary</li>
+        <li>2 Animations</li>
+        <li>1 Film from 1900-1939</li>
+        <li>1 Film from 40s-50s</li>
+        <li>1 Film from 60s-70s</li>
+        <li>1 Film from 80s-90s</li>
+        <li>1 Film from 2000s-2010s</li>
+        <li>1 No-Budget/Folk Film (Personal Project)</li>
+        <li>1 Micro-Budget	 (	&#60;20 000)</li>
+        <li>1 Ultra-Low (	&#60;300 000)</li>
+        <li>1 Moderate Low (	&#60;700 000)</li>
+        <li>1 Theatrical Budget</li>
+        <li>No More than 6 Films in English</li>
+        <li>No More than 4 Films from the Same Country</li>
+        <li>No More than 6 Films with the Same Genre Tag</li>
+        <li>Film Cannot have been Highlighted in the Past Year</li>
+
+    </ul>
+</body>
+
+<h5>
+    Monthly Movies
+</h5>
+
+<ul>
+    {% for movielist in ls %}
+        <a href= "{%url 'month' movielist.name%}">{{movielist.name}}</a>
+        <br>
+    {%endfor%}
+</ul>
+
+
+{%endblock%}
