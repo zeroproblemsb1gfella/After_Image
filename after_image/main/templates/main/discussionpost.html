@@ -1,9 +1,12 @@
 {%extends 'main/base.html'%}
 
 {%block content%}
-<h3>{{movie.title}}</h3>
+<h5>{{discussionpost.post}}</h5>
 <body>
-    {{movie.synopsis}}
+    {% for comment in discussionpost.comment_set.all %}
+        <li>{{comment.comment}}</li>
+        <br>
+    {%endfor%}
 </body>
 <br>
 <br>
@@ -14,12 +17,5 @@
     {{form}}
     <button type = "submit", name = "save">Create New</button>
 </form>
-
-<br>
-<br>
-
-<h3>
-    <a href= "{%url 'discussionposts' ls.name movie.title %}">Discussion Posts</a>
-    </h3>
 
 {% endblock %}

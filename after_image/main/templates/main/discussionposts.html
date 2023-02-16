@@ -1,0 +1,17 @@
+{%extends 'main/base.html'%}
+
+{%block content%}
+<h3>{{movie.title}}</h3>
+<body>
+    {{movie.synopsis}}
+</body>
+
+<h3>Discussion Posts</h3>
+
+<body>
+    {% for discussionpost in discussionposts %}
+        <li><a href= "{%url 'discussionpost' discussionpost.movie.movie_list.name discussionpost.movie.title discussionpost.id%}">{{discussionpost.post}}</a></li>
+        <br>
+    {%endfor%}
+</body>
+{% endblock %}

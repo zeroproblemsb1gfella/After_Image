@@ -1,7 +1,5 @@
 from django.db import models
 
-from django.db import models
-
 # Create your models here.
 class MovieList(models.Model):
 	name = models.CharField(max_length=200)
@@ -18,3 +16,17 @@ class Movie(models.Model):
     
 	def __str__(self):
 		return self.title
+#marjaneh
+class DiscussionPost(models.Model):
+    movie = models.ForeignKey(Movie, on_delete = models.CASCADE)
+    post = models.CharField(max_length = 100000)
+
+    def __str__(self):
+        return self.post
+
+class Comment(models.Model):
+    discussion_post = models.ForeignKey(DiscussionPost, on_delete=models.CASCADE)
+    comment = models.CharField(max_length = 5000)
+
+    def __str__(self):
+        return self.comment
