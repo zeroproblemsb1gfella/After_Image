@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.contrib.auth.models import User
+
 # Create your models here.
 class MovieList(models.Model):
 	name = models.CharField(max_length=200)
@@ -19,6 +21,7 @@ class Movie(models.Model):
 #marjaneh
 class DiscussionPost(models.Model):
     movie = models.ForeignKey(Movie, on_delete = models.CASCADE)
+  #  user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.CharField(max_length = 100000)
 
     def __str__(self):
@@ -26,7 +29,14 @@ class DiscussionPost(models.Model):
 
 class Comment(models.Model):
     discussion_post = models.ForeignKey(DiscussionPost, on_delete=models.CASCADE)
+  #  user = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.CharField(max_length = 5000)
 
     def __str__(self):
         return self.comment
+    
+# class Profile(models.Model):
+#       user = models.ForeignKey(User, on_delete=models.CASCADE)
+#       bio = models.CharField(max_length= 1000)
+#       def __str__(self):
+#             return self.user

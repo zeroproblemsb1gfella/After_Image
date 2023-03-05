@@ -5,9 +5,23 @@ from .forms import CreateNewDiscussionPost, CreateNewComment
 
 from django.http import HttpResponse
 from .models import MovieList, Movie, DiscussionPost, Comment
+def about(response):
+    return render(response, "main/about.html")
+
+def profile(response):
+    return render(response, "main/profile.html")
+
+def timeline(response):
+    return render(response, "main/timeline.html")
+
+def popular(response):
+    return render(response, "main/popular.html")
+
+def vote(response):
+    return render(response, "main/vote.html")
 
 def month(response, name):
-    ls = MovieList.objects.get(name = name)
+    ls = MovieList.objects.get(name = "January Movies")
     return render(response, "main/month.html", {"ls":ls})
 
 def movie(response, name, title):
