@@ -1,17 +1,20 @@
 {%extends 'main/base.html'%}
 
 {%block content%}
-<h3>Home Page</h3>
+<h1 style = "text-align: center;">
+    <img src = "https://lh3.googleusercontent.com/KyV3rmkVYmZexnAhv4vWkVBgVj8pbD6txxygWpCgj0q_M4PYP1qycshS0_1ztVik8-qS6zLR3-wON6JgCUQjKfyZjaVC_ny7YYDZLjNzS0jsP0sE17MXuAsl4kw09T3zTl_o7h-DXzIeZ9b9q-x9shBtjHc_puHNDSObSncLwFrCSFsph_A7gJe7CXfnS3TDCbZ5qCoKRvsMruVd3oyJW4plFD6OrSOpCE0kTq3GUONv-_loTF6RD2lZuWrcDoPpJNr4z8dq5GC68OSmlPiQBsk227LrHDdU3hjfMftGE-tKND7knNeoAA7AV-Wo0fkjVityIjIEgw-Sfyr_7js9Dz36hHg6dX6kWLrbWazHwTl3aTrlZrUxSUZh_sOm2cXAr-TT2OYR1NlumpHAK_7GhxqU6wT3FCQeicHqnTmQxXYZ6pYGk4eZFP6duhBQ8OON0WJmdYBSej7xdeFj6mAR-VhpMrKUQbvTwbiW81idKK9RbZJ5g8bNtBd2jcL5xWAQ7ei8bRt2--jKMHwy1UfAhfjDPmit-le8-xUHuI9bu4LcfTz1ClKyyZazgRVIetXKwXwkYR0Dx_03LYLR7mQ4i7MpSjjsnmmY3rNBUH5wyiWFRZ5A69rxDjTS9hSXvaKrEU2WrhY__hpB_gbb33LlVPQsLVJZkKh_4zBBeaGDHIBhnJsDBtofTyeBDXW29l-kJiLxxOd7cym1NsMEpTgHxikjsnMgRh1wMoG38f-gytnudPmYsZT1KsZ4OCtTb6-Q6JN_p0SXUU8Jy8QjHe0fXl3x-TcSW3dovSD_u5R34j9Z91uzZOyBe_3jbfSlkyGZS_lyro5nEi2aSXUuJj11vm9fvKdVdzHAr0ULNBO6wmJo5cK0bETaG-ny8oTdlqdwPSR207QtEnsyrbMavWoJ51ayEoHuX5gKJYV7CVsKFxp38nFKlC-4xvs9VmzFdFwVeC35C4rFY7K9nuRSn2P0UYpHQpKaQUztZFnQdNrgXtyWSImofqg5D2w6=w540-h360-no?authuser=0"
+    width="700"></h1>
+<h3 style = "text-align: center;">Home Page</h3>
 <br>
-<h5>Welcome to After Image!</h5>
+<h5 style = "text-align: center;"> Welcome to After Image!</h5>
 
 <br>
 
-<h5>
+<h5 style = "text-align: center;">
     Monthly Movies
 </h5>
 
-<ul>
+<ul style = "text-align: center;"> 
     {% for movielist in ls %}
         <a href= "{%url 'month' movielist.name%}">{{movielist.name}}</a>
         <br>
