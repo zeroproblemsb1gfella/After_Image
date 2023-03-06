@@ -9,7 +9,8 @@ def about(response):
     return render(response, "main/about.html")
 
 def profile(response):
-    return render(response, "main/profile.html")
+    user = response.user
+    return render(response, "main/profile.html",{"user":user})
 
 def timeline(response):
     return render(response, "main/timeline.html")

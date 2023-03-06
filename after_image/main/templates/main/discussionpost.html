@@ -1,6 +1,7 @@
 {%extends 'main/base.html'%}
 
 {%block content%}
+<h6>{{discussionpost.user}}</h6>
 <h5>{{discussionpost.post}}</h5>
 <body>
     {% for comment in discussionpost.comment_set.all %}
