@@ -21,6 +21,9 @@ def popular(response):
 def vote(response):
     return render(response, "main/vote.html")
 
+def initial_register_or_login(response):
+    return render(response, "main/initial_register_or_login.html")
+
 def month(response, name):
     ls = MovieList.objects.get(name = "January Movies")
     return render(response, "main/month.html", {"ls":ls})
