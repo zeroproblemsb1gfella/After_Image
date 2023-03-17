@@ -11,7 +11,7 @@ def register(response):
         if form.is_valid():
             user = form.save()
             login(response, user)
-            return redirect("/.")
+            return redirect("/home")
     else:
         form = RegisterForm()
     return render(response, "register/register.html", {"form":form})
