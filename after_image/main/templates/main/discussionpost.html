@@ -9,7 +9,7 @@
 <br></br>
 
 <h6>{{discussionpost.user}}</h6>
-<h5>{{discussionpost.post}}</h5>
+<h5>{{discussionpost.post}}&nbsp;|&nbsp;{{discussionpost.post_likes}} Likes</h5>
 <body>
     {% for comment in discussionpost.comment_set.all %}
         <li>{{comment.comment}}</li>

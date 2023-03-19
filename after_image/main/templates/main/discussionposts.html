@@ -11,7 +11,7 @@
 <body>
     {% for discussionpost in discussionposts %}
     {{discussionpost.user}}
-        <li><a href= "{%url 'discussionpost' discussionpost.movie.movie_list.name discussionpost.movie.title discussionpost.id%}">{{discussionpost.post}}</a></li>
+        <li><a href= "{%url 'discussionpost' discussionpost.movie.movie_list.name discussionpost.movie.title discussionpost.id%}">{{discussionpost.post}}&nbsp;|&nbsp;{{discussionpost.post_likes}} Likes</a></li>
         
         <br>
     {%endfor%}
