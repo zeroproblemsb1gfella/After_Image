@@ -14,8 +14,8 @@ class Movie(models.Model):
 	movie_list = models.ForeignKey(MovieList, on_delete=models.CASCADE)
 	title = models.CharField(max_length=300)
 	synopsis = models.CharField(max_length=5000)
+	movie_likes = models.IntegerField(default = 0)
 
-    
 	def __str__(self):
 		return self.title
 #marjaneh
@@ -23,6 +23,7 @@ class DiscussionPost(models.Model):
     movie = models.ForeignKey(Movie, on_delete = models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.CharField(max_length = 100000)
+    post_likes = models.IntegerField(default = 0)
 
     def __str__(self):
         return self.post
