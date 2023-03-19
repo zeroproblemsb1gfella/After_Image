@@ -4,7 +4,7 @@
 <h3>{{ls.name}}</h3>
 <ul>
     {% for movie in ls.movie_set.all %}
-        <a href= "{%url 'movie' ls.name movie.title%}">{{movie.title}}</a>
+        <a href= "{%url 'movie' ls.name movie.title%}">{{movie.title}}&nbsp;|&nbsp;{{movie.movie_likes}} Likes</a>
         <br>
     {%endfor%}
 </ul>

@@ -59,11 +59,13 @@ def home(response):
 @login_required
 def discussionposts(response, name, title):
     discussionposts = MovieList.objects.all().get(name = name).movie_set.get(title = title).discussionpost_set.all()
-    return render(response, "main/discussionposts.html", {"discussionposts":discussionposts})
+    movie = MovieList.objects.all().get(name = name).movie_set.get(title = title)
+    return render(response, "main/discussionposts.html", {"discussionposts":discussionposts, "movie":movie})
 
 @login_required
 def discussionpost(response, name, title, id):
     discussionpost = MovieList.objects.all().get(name = name).movie_set.get(title = title).discussionpost_set.all().get(id = id)
+    movie = MovieList.objects.all().get(name = name).movie_set.get(title = title)
 
     if response.method == "POST":
         form = CreateNewComment(response.POST)
@@ -74,4 +76,4 @@ def discussionpost(response, name, title, id):
     else:
         form = CreateNewComment()
 
-    return render(response, "main/discussionpost.html", {"discussionpost":discussionpost, "form":form})
+    return render(response, "main/discussionpost.html", {"discussionpost":discussionpost, "form":form, "movie": movie})

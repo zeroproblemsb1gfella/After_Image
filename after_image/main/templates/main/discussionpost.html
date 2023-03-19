@@ -1,6 +1,13 @@
 {%extends 'main/base.html'%}
 
 {%block content%}
+
+<h3>{{movie.title}}&nbsp;|&nbsp;{{movie.movie_likes}} Likes</h3>
+<body>
+    {{movie.synopsis}}
+</body>
+<br></br>
+
 <h6>{{discussionpost.user}}</h6>
 <h5>{{discussionpost.post}}</h5>
 <body>
