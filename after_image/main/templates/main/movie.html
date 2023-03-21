@@ -2,6 +2,7 @@
 
 {%block content%}
 <h3>{{movie.title}}&nbsp;|&nbsp;{{movie.movie_likes}} Likes</h3>
+<img src="{{ movie.image_link }}" alt="{{ movie.title }}" style="height: 500px; width: auto; margin-right: 20px;" class="float-right">
 <body>
     {{movie.synopsis}}
 </body>

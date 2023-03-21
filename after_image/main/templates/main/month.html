@@ -1,11 +1,24 @@
-{%extends 'main/base.html'%}
+{% extends 'main/base.html' %}
 
-{%block content%}
-<h3>{{ls.name}}</h3>
-<ul>
+{% block content %}
+<h3>{{ ls.name }}</h3>
+
+<div class="movie-grid">
     {% for movie in ls.movie_set.all %}
-        <a href= "{%url 'movie' ls.name movie.title%}">{{movie.title}}&nbsp;|&nbsp;{{movie.movie_likes}} Likes</a>
-        <br>
-    {%endfor%}
-</ul>
-{%endblock%}
+        <a href="{% url 'movie' ls.name movie.title %}">
+            <img src="{{ movie.image_link }}" alt="{{ movie.title }}" style="height: 300px; width: auto;">
+            <br>
+            {{ movie.title }} | {{ movie.movie_likes }} Likes
+        </a>
+    {% endfor %}
+</div>
+
+<style>
+    .movie-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 20px;
+        justify-items: center;
+    }
+</style>
+{% endblock %}

@@ -3,61 +3,121 @@
 <head>
     <style type="text/css">
 		/* Style the navigation menu */
-		nav {
-			background-color: #1abc9c;
-			overflow: hidden;
-			box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.3);
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-			text-transform: uppercase;
-			letter-spacing: 2px;
-			position: relative;
-		}
+        nav {
+            background-image: url('https://lh3.googleusercontent.com/d_L8pLgajTGMHUIpjDVN_Cy_Y5dCgLm3ncIpZveKzX1qVLFvLM99fx4ODXl_IH7JWHlcYHXLlKdEUHOpYurUBKrjCDSXCP7JHhdbG7kOuF3Z-AlBoGxVJMqZ3ej2TLCJ1jWtUDmnhjuslIhWRYkgPxwwCIWtK2ik_aXY4piPlmLi-lgTFm0JD-KUEOv7NIMMyYyjTORDm9PkAUPfpFVy7q9mfdoU7O9zC50ast0PPpzTAVDXZNFeBK5BfaaeKLkO0NU9OsZmp-0T1vu2RbRXbVmVFcuUWe2oYbhuWYLCTvsbN0ZqiBiuFDgtObE4htZqpkYMZymuGQogoINDsaFhiCNr2vTX81OGfP7Two0cem2lLg7Us2q9UShffHo4zuMDZjZZUdvp16Rcm2VeJJGO6Ov2GYF-gS8dO6OL3tk_NLxuj0_OoPo6Hg-WmMwbjtWvB39Dv5fMQij-nDwja3NdnxbzGW_ayuL9Kg5u_kUQx1fBWKSGeov8AohU5EEYCsYPjmw7bvu980QsvvNpDP6Odj3q9Xi_YROgmqxmD1pqK9L_XEVcfo7zRMhnMKPfRfY_Yl93QlgKAqbyldJqGt6MimUVCxpmQr1dSMqgB_9Bb7SujZ1uQKqeNQaD-FWwzUxcS_2bvHVa-I25PJpyfwMR0_n1_UbnBVHDfPYjHR1xlv0vEJPyr4tJ_J7aGyMxSgza4d6x0NEAT1P2dTyvyCzXA_ot2FYQOKGqO1EWI7J74ANtO7xATh8jQhjW70nAp4EMF5aVHRZh5IrD8HhjpoEjJKctZvtqOkXPREFEBIaowAMZPrrHxsOthaD43Ofte7qEGkSHlOvMpdzLgYh-uHAeVIQ3VPIuhX91NDI7HjKophymf5aSAy9ZdRwBtJlahUJCBRKP8jbmktcNt3zNfa0_8i_nmjTxfO87rLpHo3eevOvWDcbCUZurHX9cVZEIv_XOYea7nwCIzrBaUm3WSSH0LuTWovcoWe_8NjgAOzp4l2opXaadAb4dLw=w626-h417-no?authuser=0');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            color: white;
+        }
 
-		/* Style the links inside the menu */
-		nav a {
-			display: inline-block;
-			color: white;
-			text-align: center;
-			padding: 20px 30px;
-			text-decoration: none;
-			transition: all 0.3s ease;
-		}
 
-		/* Change color on hover */
-		nav a:hover {
-			background-color: #16a085;
-		}
+        /* Style the links inside the menu */
+        nav a {
+            display: inline-block;
+            text-align: center;
+            padding: 20px 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+       
+        nav a {
+            /* previous styles */
+            position: relative;
+            text-decoration: none;
+            color: rgb(57, 198, 254);
+        }
 
-		/* Add indicator for active link */
-		nav .active {
-			background-color: #16a085;
-		}
 
-		/* Add arrow to active link */
-		nav .active:after {
-			content: '';
-			position: absolute;
-			top: 100%;
-			left: 50%;
-			margin-left: -10px;
-			border-width: 10px;
-			border-style: solid;
-			border-color: transparent transparent #16a085 transparent;
-		}
+        nav a::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            text-decoration: none;
+            background-color: white;
+            transition: all 0.3s ease;
+            transform-origin: left;
+            color: rgb(57, 198, 254);
+        }
+
+
+        nav a:hover::before {
+            width: 100%;
+            transform: scaleX(1);
+            text-decoration: none;
+            color: rgb(57, 198, 254);
+        }
+           
+        /* Change color on hover */
+        nav a:hover {
+            background-color: #979696;
+            text-decoration: none;
+            color: white;
+        }
+
+
+        /* Add indicator for active link */
+        nav .active {
+            background-color: #676767;
+            text-decoration: none;
+        }
+
+
+        /* Add arrow to active link */
+        nav .active:after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -10px;
+            border-width: 10px;
+            text-decoration: none;
+            border-style: solid;
+            color: white;
+            border-color: transparent transparent #cccccc transparent;
+        }
+
+
+
+        body{
+			background-image: url('https://lh3.googleusercontent.com/J2Ni_AyGr0-qVHffByg2ZIiVZZ7XjDtJ2CO0QVtnTQQzkb2ykmn-IUaYE4sNagqg-w6FplBZyxGSMZtdYf1uqYofLCNtv5A-8YE6S_dCJT1XWT5vgaboxOvKbMvj2md0BgPXrgzOGh8-Jjt0QTBSRorJE1OaATFy5twhJYGOgnn5YVkd0vOwCMkwX5r_tMUg1o_JcwSiqP51a4jfSfAcEcmxUGQhQWQoOd8pVhB5F1R49lhgQZca9KOOd8ZsZX2z1UmKf4PVMAsYSW0Kt_BL9iBYR4iY5djgf_tqPTlO8tBmiCif2CHZnWq-Pw7yJLLEmgLnsx288zOQwHE3KAcG5uPPGELZwNSvVw_cLKwviX80WLe7hZhfHY5c1yZvqzW3xFyAdIGJMl9VQXmEEvWSdupUqGnUhLmQEzsAgrMQSiQqYwJlBnBRjtKgxPiyq45ioGTtNl-yiElsbrjeh2UIwmg_kv3NQbTTkaxW-v81owtYMOuBrv7Vkw8h-u9N3I1c2Zo-E5VyRSlXlyESjMRsvPWA1YxAC5qFoSBeEd4856PVpHdZAt8HEZQQfiPta0i6yoU62M7U537FeBYKScB7WDqtiQPSfo9ioHWd6_qxjvYEFqKU1MuR3IQ2AlfTrM8wHysAWKDcPOy01zrMBC01QOuEF1aHUn75FYsEN6PbhW1puyA8S-9l_X6iS7n5hohv3bdvTrwdSWE_QJ29Bha6PFULLxotEWMc72rVK-BwRU3bXjJZWKsrS2tsdk51aGh9WryXr5VhSozgb-sGspb0ZpLFhpv-6kj0x8slWJPBaehP2kKcqb6GeTZ82qLdZDVbtPLjJKS-bXijXBN2NvBoy0F7B1QQEhBM0IrmNMTbNhbjUCwBk1uP1c6Gaor7XChZz8B4bvJqLLZasgTRrkvPMKjiWgHcgJhSAS7XCLO4_AuZuF9KLmMyHVz5BWBDFM0E4zmxZN0bdUgitaVvsinNhdee0XMFoX6bMsYHNWuKO3ZTdv1hslBJlw=w1677-h944-no?authuser=0%27');
+            background-size: cover;
+        }
+
+
 	
         </style>
-    <title>After Image</title>
+	<title style="color: rgb(255, 255, 255);">After Image</title>
 
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    h1 {
+        color: rgb(255, 255, 255);
+    }
+    body{
+        color: rgb(255, 255, 255);
+    }
+</style>
+
 </head>
 
-<h1>
-    <img src = "https://lh3.googleusercontent.com/YGaOIoJhduENOBMEF6vFOzHiIM9FWWPDv-4b8AvbJb7YmGnQVRHY03YhFp1t_2Ph03k=w2400" height="100"> After Image
-</h1>
-
 <body>
+	<h1>
+        <img src = "https://lh3.googleusercontent.com/wK5UlG7Vsb9rUvaRpF0KOVn5EJllpdbz-_tI51rHnkUWboifMXS2SGXrtn92bOa4IBAJwsSUJ49qDoApaDNFYDw2qsGO8LNobVGiXAbYZt1Vzuj_ow8u9BT4nFU5GQxVc-sHCY5e2UDNV7YQMl8Zdj5PYABYkMStOg-nSKppvmslx-2JVzvdd8lO2Db3M8z8wU7s6jCjjW-72_In6KSp3cHzqJfTgpD14S1Pp9EvvI5t6YKL18-qyN3puQDzovsdHW7EsOy4zZWniCDROcRtDk1YwRttvqQ3oBpPImFallfMIlV1ViAoDBA3zUCR334sfLV82_SpPttghcH3DExacQNRfHBtUGyzttDzd6emkbbvzQFyXgcW2cRA4z30HSU5AgVoB1zMhkS0n3dMRQteB5JbNR1qfmtv-g6ZNHFhxiiVZBONPzHUKnCTdcjSVC31joTGmNQwJCaJqVbjGiRC0Tv2UNW3hu9GJAdUCnlyWnuaF0_VYEW3xIuzAPF2lUlyZvwyfYVBcKwPUlybOvF80GdHi4Q1XTWdEyZcP3EY6o83dWcGtexwW53emyd8fzIAR8lFbGw0KbusCV4xbzw61oV0vP4dmKUdzdzzRUCC22Yx-10LNvK48TN-LG2hBlDsgoIHaZXsybUH-WREdXnG82ys8SWfmvMGg-s-ZlOZ_i5s_XEpqS0FxtfqrBIWGL4MSU3l3Vog7Gww0B3KrPMReXc4Is3ohGG_MBe7dPV3kHrC0uhAzK4VfHeimN2lNL03yNpJT9qpvUVp56jdAI5IZNwd_SoB-BQSvrZ6u-HAm8JUUjnlO8Ym8Q-JIH9oVX39C1M0PpIUuHUzm7_xVSBhq28YJbWGjdHUNWaEthCOqXfXPs56CtjNv1QtZwIuGxCyp1Ow3fa__7f3uD1Er4gOHprQ8FjZCCL7OfWjrs01PGdeQtF1Zmie5nLIlrKBAlbXoHoQYMdLVzMcDAxpDjEaCTu_vlhEkkqds11tl4u-bnL3leLeYvW4xEQY=w540-h360-no?authuser=0"
+         height="100"> After Image
+    </h1>
+
     <nav>
         <a href="\home">Home</a>
 		<a href="\vote">Vote</a>

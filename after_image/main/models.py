@@ -11,13 +11,14 @@ class MovieList(models.Model):
 
 
 class Movie(models.Model):
-	movie_list = models.ForeignKey(MovieList, on_delete=models.CASCADE)
-	title = models.CharField(max_length=300)
-	synopsis = models.CharField(max_length=5000)
-	movie_likes = models.IntegerField(default = 0)
+    movie_list = models.ForeignKey(MovieList, on_delete=models.CASCADE)
+    title = models.CharField(max_length=300)
+    synopsis = models.CharField(max_length=5000)
+    movie_likes = models.IntegerField(default = 0)
+    image_link = models.URLField(max_length=200, null=True, blank=True)
 
-	def __str__(self):
-		return self.title
+    def __str__(self):
+        return self.title
 #marjaneh
 class DiscussionPost(models.Model):
     movie = models.ForeignKey(Movie, on_delete = models.CASCADE)
