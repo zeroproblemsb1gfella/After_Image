@@ -49,9 +49,9 @@ def movie(response, name, title):
     movie = ls.movie_set.get(title = title)
     user = response.user
     try:
-        watched = Movie_Watched.objects.get(user = response.user, movie = movie)
+        watched = Movie_Watched.objects.get(user = response.user, month = ls, movie = movie)
     except Movie_Watched.DoesNotExist:
-        watched = Movie_Watched(user = response.user, movie = movie, watched = False)
+        watched = Movie_Watched(user = response.user, movie = movie, month = ls, watched = False)
         watched.save()
     if response.method == "POST":
         form = CreateNewDiscussionPost(response.POST)
@@ -69,7 +69,7 @@ def toggle_watched(response, name, title):
     movie = ls.movie_set.get(title = title)
     user = response.user
     try:
-        watched = Movie_Watched.objects.get(user = response.user, movie = movie)
+        watched = Movie_Watched.objects.get(user = response.user, movie = movie, month = ls)
         watched.watched = not watched.watched
         watched.save()
         if watched.watched == True:
@@ -79,7 +79,7 @@ def toggle_watched(response, name, title):
             movie.watched -= 1
             movie.save()
     except Movie_Watched.DoesNotExist:
-        watched = Movie_Watched(user = response.user, movie = movie, watched = False)
+        watched = Movie_Watched(user = response.user, movie = movie, month = ls, watched = False)
         watched.save()
     
     return redirect('/movie/' + name +  '/' + title)

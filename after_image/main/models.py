@@ -92,5 +92,6 @@ class Discussion_Likes(models.Model):
 class Movie_Watched(models.Model):
     movie = models.ForeignKey(Movie, on_delete = models.CASCADE)
     user = models.ForeignKey(MyUser, on_delete = models.CASCADE)
+    month = models.ForeignKey(MovieList, on_delete = models.CASCADE)
     date_watched = models.DateField(default = date.today)
     watched = models.BooleanField(default = False)

@@ -10,4 +10,33 @@
         {{form}}
         <button type = "submit", name = "save">Create New</button>
     </form>
+
+    <h5>Liked Discussion Posts</h5>
+    <body>
+        {% for liked in user.discussion_likes_set.all %}
+            {%if liked.liked == True%}
+                {{liked.discussion_post.user}}
+                    <li><a href= "{%url 'discussionpost' liked.discussion_post.movie.movie_list.name liked.discussion_post.movie.title liked.discussion_post.id%}">{{liked.discussion_post.post}}&nbsp;|&nbsp;{{liked.discussion_post.post_likes}} Likes</a></li>
+                
+                    <br>
+            {%endif%}
+            {%endfor%}
+    </body>
+
+
+    <h5>Watched Movies</h5>
+    <body>
+        {% for watched in user.movie_watched_set.all %}
+        
+            {%if watched.watched == True%}
+                {{watched.movie.title}}
+                <a href="{% url 'movie' watched.month watched.movie.title %}">
+                    <img src="{{ watched.movie.image_link }}" alt="{{ watched.movie.title }}" style="height: 300px; width: auto;">
+                    <br>
+                    {{ watched.movie.title }} | {{ watched.movie.watched }} Watches
+                </a>
+            {%endif%}
+            {%endfor%}
+    </body>
+
 {%endblock%}
