@@ -8,7 +8,7 @@
         <a href="{% url 'movie' ls.name movie.title %}">
             <img src="{{ movie.image_link }}" alt="{{ movie.title }}" style="height: 300px; width: auto;">
             <br>
-            {{ movie.title }} | {{ movie.movie_likes }} Likes
+            {{ movie.title }} | {{ movie.watched }} Watches
         </a>
     {% endfor %}
 </div>

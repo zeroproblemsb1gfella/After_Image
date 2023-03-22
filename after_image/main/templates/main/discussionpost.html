@@ -2,14 +2,18 @@
 
 {%block content%}
 
-<h3>{{movie.title}}&nbsp;|&nbsp;{{movie.movie_likes}} Likes</h3>
+<h3>{{movie.title}}&nbsp;|&nbsp;{{movie.watched}} Watches</h3>
 <body>
     {{movie.synopsis}}
 </body>
 <br></br>
 
 <h6>{{discussionpost.user}}</h6>
-<h5>{{discussionpost.post}}&nbsp;|&nbsp;{{discussionpost.post_likes}} Likes</h5>
+<h5>{{discussionpost.post}}&nbsp;</h5>
+
+<h7>&nbsp;{{discussionpost.post_likes}} Likes</h7>
+<br>
+<br>
 <body>
     {% for comment in discussionpost.comment_set.all %}
         <li>{{comment.comment}}</li>
@@ -18,6 +22,14 @@
 </body>
 <br>
 <br>
+<form method = "POST" action = "{% url 'toggle_likes' name title id%}">
+    {%csrf_token%}
+    {% if liked.liked%}
+        <button type = "submit" class = "btn btn-success">Liked</button>
+    {%else%}
+        <button type = "submit" class = "btn btn-success">Not Liked</button>
+    {%endif%}
+</form>
 <br>
 <br>
 <form method = "post" action ="#">

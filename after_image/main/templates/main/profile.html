@@ -2,6 +2,12 @@
 
 {%block content%}
 <h3>Profile</h3>
-    <body>{{user.profile_set.get.bio}}
+    <body>{{user.profile}}
     </body>
+
+    <form method = "post" action ="#">
+        {%csrf_token%}
+        {{form}}
+        <button type = "submit", name = "save">Create New</button>
+    </form>
 {%endblock%}

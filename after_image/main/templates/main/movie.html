@@ -1,7 +1,7 @@
 {%extends 'main/base.html'%}
 
 {%block content%}
-<h3>{{movie.title}}&nbsp;|&nbsp;{{movie.movie_likes}} Likes</h3>
+<h3>{{movie.title}}&nbsp;|&nbsp;{{movie.watched}} Watches</h3>
 <img src="{{ movie.image_link }}" alt="{{ movie.title }}" style="height: 500px; width: auto; margin-right: 20px;" class="float-right">
 <body>
     {{movie.synopsis}}
@@ -15,7 +15,14 @@
     {{form}}
     <button type = "submit", name = "save">Create New</button>
 </form>
-
+<form method = "POST" action = "{% url 'toggle_watched' name title%}">
+    {%csrf_token%}
+    {% if watched.watched%}
+        <button type = "submit" class = "btn btn-success">Watched</button>
+    {%else%}
+        <button type = "submit" class = "btn btn-success">Not Watched</button>
+    {%endif%}
+</form>
 <br>
 <br>
 

@@ -15,5 +15,7 @@ urlpatterns = [
     path("popular", views.popular, name = "popular"),
     path("timeline", views.timeline, name = "timeline"),
     path("profile", views.profile, name = "profile"),
-    path("about", views.about, name = "about")
+    path("about", views.about, name = "about"),
+    path('movie/<str:name>/<str:title>/toggle_watched', views.toggle_watched, name = "toggle_watched"),
+    path('movie/<str:name>/<str:title>/discussionposts/<int:id>/toggle_likes', views.toggle_likes, name = "toggle_likes")
 ]   
