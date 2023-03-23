@@ -1,6 +1,7 @@
 # urls.py
 from django.urls import path
-
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
@@ -18,4 +19,4 @@ urlpatterns = [
     path("about", views.about, name = "about"),
     path('movie/<str:name>/<str:title>/toggle_watched', views.toggle_watched, name = "toggle_watched"),
     path('movie/<str:name>/<str:title>/discussionposts/<int:id>/toggle_likes', views.toggle_likes, name = "toggle_likes")
-]   
+]   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
