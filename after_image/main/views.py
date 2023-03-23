@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import CreateNewDiscussionPost, CreateNewComment, CreateNewBio
 from django.contrib.auth.decorators import login_required
-
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -132,3 +132,7 @@ def toggle_likes(response, name, title, id):
         liked.save()
     id_string = str(id)
     return redirect('/movie/' + name +  '/' + title + '/discussionposts/' + id_string)
+
+def go_back(request):
+    return render(request, 'main/go_back.html')
+

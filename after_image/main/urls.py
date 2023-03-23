@@ -3,8 +3,10 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
+from .views import go_back
 
 urlpatterns = [
+    path('go-back/', go_back, name='go_back'),
     path('movie/<str:name>', views.month, name='month'),
     path('movie/<str:name>/<str:title>', views.movie, name = "movie"),
     path('movie/<str:name>/<str:title>/discussionposts', views.discussionposts, name = 'discussionposts'),
