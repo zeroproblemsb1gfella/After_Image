@@ -54,7 +54,7 @@ def movie(response, name, title):
             t.save()
     else:
         form = CreateNewDiscussionPost()
-    return render(response, "main/movie.html",{"ls":ls,"movie":movie,"watched":watched,"name":name,"title":title, "form":form})
+    return render(response, "main/" +str(movie.id) + ".html",{"ls":ls,"movie":movie,"watched":watched,"name":name,"title":title, "form":form})
 
 @login_required
 def toggle_watched(response, name, title):

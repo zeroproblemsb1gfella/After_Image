@@ -58,11 +58,12 @@ class MovieList(models.Model):
 
 class Movie(models.Model):
     movie_list = models.ForeignKey(MovieList, on_delete=models.CASCADE)
-    title = models.CharField(max_length=300)
+    title = models.CharField(max_length=300, unique = True)
     synopsis = models.CharField(max_length=5000)
     watched = models.IntegerField(default = 0)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
-
+    release_date = models.IntegerField(default = 2000)
+    length = models.IntegerField(default = 120)
     def __str__(self):
         return self.title
 
