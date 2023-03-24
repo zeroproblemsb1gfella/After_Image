@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import CreateNewDiscussionPost, CreateNewComment, CreateNewBio
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from django.db.models import Max
 
 # Create your views here.
 
@@ -25,7 +26,17 @@ def profile(response):
 
 @login_required
 def popular(response):
-    return render(response, "main/popular.html")
+    largest_id = int(MovieList.objects.aggregate(Max('id')).get('id__max',0))
+    ls = MovieList.objects.all().get(id = largest_id)
+    movie_list = ls.movie_set.all()
+    movie_list = sorted(movie_list, key = lambda x: x.watched)
+    discussion_post_list = []
+    for movie in movie_list:
+        for discussion in movie.discussionpost_set.all():
+            discussion_post_list.append(discussion)
+    
+    discussion_post_list = sorted(discussion_post_list, key = lambda x: x.liked)
+    return render(response, "main/popular.html", {"ls":ls, "movie":movie_list, "discussion":discussion_post_list})
 
 
 def initial_register_or_login(response):
