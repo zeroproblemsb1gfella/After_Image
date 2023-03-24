@@ -1,12 +1,366 @@
 
 {%extends 'main/movie.html'%}
-
+{% load static %}
 {%block content%}
 {{block.super}}
-<br>
-<br>
-<h5>After Sun</h5>
-<body>
-    CUSTOM STUFF LETS GOOOOOOOO
-</body>
+
+<div class="image-container">
+    <img id="aftersun" src="{% static 'aftersun-still1.jpeg'%}" alt="aftersun">
+    <script>
+        window.addEventListener("scroll", function() {
+        var image = document.getElementById("aftersun");
+        var text = document.querySelector(".text-container");
+        var border = document.querySelector(".image-container");
+        var imagePosition = image.getBoundingClientRect().top;
+        var screenPosition = window.innerHeight /0.5;
+
+        if (imagePosition < screenPosition) {
+            // Calculate the opacity value based on the distance between the image
+            // and the top of the viewport
+            var opacity = (screenPosition - imagePosition) / screenPosition;
+
+            // Update the opacity of the image, text, and border
+            image.style.opacity = opacity;
+            text.style.opacity = opacity;
+            border.style.opacity = opacity;
+
+
+        }
+        });
+
+      </script>
+
+    <div class="text-container">
+      <h2>AFTERSUN</h2>
+      <p>Directed by Charlotte Wells</p>
+      <p>Starring Paul Mescal as Calum and Frankie Corio as Sophie</p>
+      <p>Aftersun is a lovely film that serves both as a coming of age film for Sophie and a character study of Calum, a young divorced father trying to do best by his daughter Sophie. Its plot is centered around a vacation in Turkey the two took 15 years ago. The story is told with a combination of striking cinematography and old home video footage as Adult Sophie tries to piece together what happened to her father and why.</p>
+    </div>
+  </div>
+  <style>
+    .image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5em;
+    border: 10px double #009bce;
+    padding: 1em;
+    position:relative;
+    background-color: #cccccc;
+  }
+  
+  #aftersun {
+    max-width: 50%;
+    margin-bottom: 1em;
+    margin-left: 2em;
+    border: 1px solid #000000;
+    padding: 0.5em;
+    background-image: linear-gradient(to right, transparent 10%, rgba(0, 0, 0, 0.1) 20%);
+    background-size: 2px 100%;
+    animation: noise 2s infinite linear alternate-reverse;
+  }
+  
+  .text-container {
+    flex-basis: 45%;
+    margin-left: 2em;
+  }
+  
+  h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: darkblue;
+  }
+  
+  p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+  .image-container, .text-container, #aftersun {
+  opacity: 0;
+}
+
+
+@keyframes noise {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(-15px);
+  }
+}
+
+</style>
+
+<div class="image-container2">
+    <div class="text-container2">
+      <h2>Oscar Nomination</h2>
+      <p>Paul Mescal received an Oscar nomination for best actor in the 2023 Oscars. He is rapidly becoming a rising star with performances in the hit TV show Normal People and the 2021 film The Lost Daughter.</p>
+    </div>
+    <img id="aftersun2" src="{% static 'aftersun2.jpg'%}" alt="aftersun2">
+    
+      <script>
+    window.addEventListener("scroll", function() {
+    var image = document.getElementById("aftersun2");
+    var text = document.querySelector(".text-container2");
+    var border = document.querySelector(".image-container2");
+    var imagePosition = image.getBoundingClientRect().top;
+    var screenPosition = window.innerHeight /0.5;
+
+    if (imagePosition < screenPosition) {
+        // Calculate the opacity value based on the distance between the image
+        // and the top of the viewport
+        var opacity = (screenPosition - imagePosition) / screenPosition;
+
+        // Update the opacity of the image, text, and border
+        image.style.opacity = opacity;
+        text.style.opacity = opacity;
+        border.style.opacity = opacity;
+
+
+    }
+    });
+
+ 
+    </script>
+  </div>
+  
+  <style>
+    .image-container2 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 5em;
+      border: 10px double #009bce;
+      padding: 1em;
+      position:relative;
+      background-color: #cccccc;
+    }
+    
+    #aftersun2 {
+      max-width: 45%;
+      margin-left: 2em;
+      margin-bottom: 1em;
+      border: 1px solid #000000;
+      padding: 0.5em;
+      background-image: linear-gradient(to right, transparent 10%, rgba(0, 0, 0, 0.1) 20%);
+      background-size: 2px 100%;
+      animation: noise 2s infinite linear alternate-reverse;
+    }
+    
+    .text-container2 {
+      flex-basis: 45%;
+      margin-left:5em;
+    }
+    
+    h2 {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 1em;
+      color: darkblue;
+    }
+    
+    p {
+      font-size: 1.2em;
+      line-height: 1.5;
+      color: #000000;
+    }
+  
+    .image-container2, .text-container2, #aftersun2 {
+      opacity: 0;
+    }
+  </style>
+
+<div class="image-container3">
+    <img id="aftersun3" src="{% static 'aftersun3.jpg'%}" alt="aftersun3">
+    <script>
+        window.addEventListener("scroll", function() {
+        var image = document.getElementById("aftersun3");
+        var text = document.querySelector(".text-container3");
+        var border = document.querySelector(".image-container3");
+        var imagePosition = image.getBoundingClientRect().top;
+        var screenPosition = window.innerHeight /0.5;
+
+        if (imagePosition < screenPosition) {
+            // Calculate the opacity value based on the distance between the image
+            // and the top of the viewport
+            var opacity = (screenPosition - imagePosition) / screenPosition;
+
+            // Update the opacity of the image, text, and border
+            image.style.opacity = opacity;
+            text.style.opacity = opacity;
+            border.style.opacity = opacity;
+
+
+        }
+        });
+
+      </script>
+      
+    <div class="text-container3">
+      <h2>Charlotte Wells</h2>
+      <p>Charlotte Wells is a Scottish filmmaker based in New York.
+
+        She is a graduate of the MBA/MFA dual-degree program at NYU where she wrote and directed three short films and produced many more.
+        
+        Charlotte was a Fellow at the 2020 Sundance Institute Screenwriters and Directors Labs with her first feature Aftersun which premiered in Semaine de la Critique at Cannes in 2022.</p>
+    </div>
+  </div>
+  <style>
+    .image-container3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5em;
+    border: 10px double #009bce;
+    padding: 1em;
+    position:relative;
+    background-color: #cccccc;
+  }
+  
+  #aftersun3 {
+    max-width: 50%;
+    margin-bottom: 1em;
+    margin-left: 2em;
+    border: 1px solid #000000;
+    padding: 0.5em;
+    background-image: linear-gradient(to right, transparent 10%, rgba(0, 0, 0, 0.1) 20%);
+    background-size: 2px 100%;
+    animation: noise 2s infinite linear alternate-reverse;
+  }
+  
+  .text-container3 {
+    flex-basis: 45%;
+    margin-left: 2em;
+  }
+  
+  h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: darkblue;
+  }
+  
+  p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+  .image-container3, .text-container3, #aftersun3 {
+  opacity: 0;
+}
+
+
+
+
+@keyframes noise {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(-15px);
+  }
+}
+
+</style>
+
+
+<div class="image-container4">
+    <div class="text-container4">
+        <h2>Waterworks</h2>
+        <p>Be warned that Aftersun is a brutally honest film that can be extremely sad for some. Its depiction of depression is nothing short of heartwrenching.</p>
+      </div>
+    <img id="aftersun4" src="{% static 'aftersun4.jpg'%}" alt="aftersun4">
+    <script>
+        window.addEventListener("scroll", function() {
+        var image = document.getElementById("aftersun4");
+        var text = document.querySelector(".text-container4");
+        var border = document.querySelector(".image-container4");
+        var imagePosition = image.getBoundingClientRect().top;
+        var screenPosition = window.innerHeight /0.5;
+
+        if (imagePosition < screenPosition) {
+            // Calculate the opacity value based on the distance between the image
+            // and the top of the viewport
+            var opacity = (screenPosition - imagePosition) / screenPosition;
+
+            // Update the opacity of the image, text, and border
+            image.style.opacity = opacity;
+            text.style.opacity = opacity;
+            border.style.opacity = opacity;
+
+
+        }
+        });
+
+      </script>
+      </div>
+
+  <style>
+    .image-container4 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5em;
+    border: 10px double #009bce;
+    padding: 1em;
+    position:relative;
+    background-color: #cccccc;
+  }
+  
+  #aftersun4 {
+    max-width: 45%;
+    margin-left: 2em;
+    margin-bottom: 1em;
+    border: 1px solid #000000;
+    padding: 0.5em;
+    background-image: linear-gradient(to right, transparent 10%, rgba(0, 0, 0, 0.1) 20%);
+    background-size: 2px 100%;
+    animation: noise 2s infinite linear alternate-reverse;
+  }
+  
+  .text-container4 {
+    flex-basis: 45%;
+    margin-left:5em;
+  }
+  
+  h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: darkblue;
+  }
+  
+  p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+  .image-container4, .text-container4, #aftersun4 {
+  opacity: 0;
+}
+
+
+
+
+@keyframes noise {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(-15px);
+  }
+}
+
+</style>
+
+
 {% endblock %}
