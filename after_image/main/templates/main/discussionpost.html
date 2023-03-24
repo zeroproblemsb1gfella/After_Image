@@ -16,6 +16,7 @@
 <br>
 <body>
     {% for comment in discussionpost.comment_set.all %}
+        {{comment.user}}
         <li>{{comment.comment}}</li>
         <br>
     {%endfor%}

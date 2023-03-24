@@ -24,23 +24,16 @@ def profile(response):
     return render(response, "main/profile.html",{"user":user, "form":form})
 
 @login_required
-def timeline(response):
-    return render(response, "main/timeline.html")
-
-@login_required
 def popular(response):
     return render(response, "main/popular.html")
 
-@login_required
-def vote(response):
-    return render(response, "main/vote.html")
 
 def initial_register_or_login(response):
     return render(response, "main/initial_register_or_login.html")
 
 @login_required
 def month(response, name):
-    ls = MovieList.objects.get(name = "January Movies")
+    ls = MovieList.objects.get(name = name)
     return render(response, "main/month.html", {"ls":ls})
 
 @login_required
