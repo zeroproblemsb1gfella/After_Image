@@ -1,12 +1,262 @@
 
 {%extends 'main/movie.html'%}
-
+{% load static %}
 {%block content%}
 {{block.super}}
-<br>
-<br>
-<h5>A Page of Madness</h5>
-<body>
-    CUSTOM STUFF LETS GOOOOOOOO
-</body>
+
+<div class="image-container">
+    <img id="apageofmadness" src="{% static 'apageofmadness1.jpg'%}" alt="apageofmadness" width="50%" height = auto>
+
+
+    <div class="text-container">
+      <h2>A PAGE OF MADNESS</h2>
+      <p>"A Page of Madness" is a 1926 Japanese silent film directed by Teinosuke Kinugasa. The film was written by Yasunari Kawabata, who would go on to win the Nobel Prize for Literature in 1968, Teinosuke Kinugasa, Banko Sawada, and Minoru Inuzuka.</p>
+      <p>The film tells the story of a retired sailor who takes a job as a janitor at an insane asylum to be closer to his wife, who is a patient there. 
+        As he works and watches over his wife, he becomes increasingly caught up in the madness of the asylum, and the lines between reality and hallucination begin to blur.</p>
+    </div>
+  </div>
+  <style>
+    .image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5em;
+    border: 10px double #808080;
+    padding: 1em;
+    position:relative;
+    background-color: #cccccc;
+  }
+  
+  #apageofmadness {
+    max-width: 50%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 2em;
+    border: 1px solid #cccccc;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    padding: 0.5em;
+    background-image: linear-gradient(to right, transparent 10%, #cccccc 20%);
+    background-size: 2px 100%;
+  }
+
+  #apageofmadness:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+  border: none;
+  }
+
+  .text-container {
+    flex-basis: 45%;
+    margin-left: 2em;
+  }
+  
+  h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: #333333 ;
+  }
+  
+  p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+</style>
+
+<div class="image-container2">
+    <div class="text-container2">
+      <h2>STYLE</h2>
+      <p>The film is widely recognized for its innovative visual style and use of experimental avant-garde techniques, such as vivid imagery, rapid editing, and a fragmented narrative structure. 
+        "A Page of Madness" is considered to be a masterpiece of Japanese silent cinema, and is one of the most important and influential works in the history of world cinema. 
+        Despite its critical acclaim, the film was largely overlooked in Japan upon its initial release, and only a few prints survived over the years.
+    </p>
+    </div>
+    <img id="apageofmadness2" src="{% static 'apageofmadness2.jpg'%}" alt="apageofmadness" width="40%" height = auto>
+
+  </div>
+  
+  <style>
+    .image-container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5em;
+    border: 10px double #808080;
+    padding: 1em;
+    position:relative;
+    background-color: #cccccc;
+  }
+    
+    #apageofmadness2 {
+    max-width: 50%;
+    margin-bottom: 1em;
+    margin-right: 2em;
+    border: 1px solid #cccccc;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    padding: 0.5em;
+    background-image: linear-gradient(to right, transparent 10%, #cccccc 20%);
+    background-size: 2px 100%;
+  }
+
+    #apageofmadness2:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+    border: none;
+    }
+    
+    .text-container2 {
+      flex-basis: 45%;
+      margin-left:5em;
+    }
+    
+    h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: #333333 ;
+    }
+  
+    p {
+        font-size: 1.2em;
+        line-height: 1.5;
+        color: #000000;
+    }
+
+  </style>
+
+
+<div class="image-container3">
+    <img id="apageofmadness3" src="{% static 'apageofmadness3.jpg'%}" alt="apageofmadness3" width="50%" height = auto>
+
+
+    <div class="text-container3">
+      <h2>MODERN RECEPTION</h2>
+      <p>In recent years, A Page of Madness has undergone a critical reappraisal, and is now widely regarded as an important work of world cinema. 
+        The experimentation used in the film as well as the haunting imagery provides an early example of a psychological horror film, and continues to influence filmmakers and artists today. 
+        With its powerful exploration of madness, memory, and the human psyche, A Page of Madness continues to be a fascinating and essential work of cinema, one that continues to captivate and inspire audiences around the world.
+
+      </p>
+    </div>
+  </div>
+  <style>
+    .image-container3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5em;
+    border: 10px double #808080;
+    padding: 1em;
+    position:relative;
+    background-color: #cccccc;
+  }
+  
+  #apageofmadness3 {
+    max-width: 50%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 2em;
+    border: 1px solid #cccccc;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    padding: 0.5em;
+    background-image: linear-gradient(to right, transparent 10%, #cccccc 20%);
+    background-size: 2px 100%;
+  }
+
+  #apageofmadness3:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+  border: none;
+  }
+
+  .text-container3 {
+    flex-basis: 45%;
+    margin-left: 2em;
+  }
+  
+  h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: #333333 ;
+  }
+  
+  p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+</style>
+
+
+<div class="image-container4">
+    <div class="text-container4">
+      <h2>HORROR</h2>
+      <p>As suggested by the name, "A Page of Madness" explores the theme of madness and the psychological effects of mental illnesses. 
+        The film uses vivid imagery and takes place within a mental asylum, creating a dark and unnerving atmosphere. The usage of non-linear storytelling adds ambiguity
+        between reality and illusion displaying confusion that both the characters and the audience experience. 
+        "A Page of Madness" is a groundbreaking film for its time, using the depiction of an individual's loss of sanity to create a sense of dread and discomfort for the audience.   
+    </p>
+    </div>
+    <img id="apageofmadness4" src="{% static 'apageofmadness4.jpg'%}" alt="apageofmadness4" width="40%" height = auto>
+
+  </div>
+  
+  <style>
+    .image-container4 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5em;
+    border: 10px double #808080;
+    padding: 1em;
+    position:relative;
+    background-color: #cccccc;
+  }
+    
+    #apageofmadness4 {
+    max-width: 50%;
+    margin-bottom: 1em;
+    margin-right: 2em;
+    border: 1px solid #cccccc;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    padding: 0.5em;
+    background-image: linear-gradient(to right, transparent 10%, #cccccc 20%);
+    background-size: 2px 100%;
+  }
+
+    #apageofmadness4:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+    border: none;
+    }
+    
+    .text-container4 {
+      flex-basis: 45%;
+      margin-left:5em;
+    }
+    
+    h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: #333333 ;
+    }
+  
+    p {
+        font-size: 1.2em;
+        line-height: 1.5;
+        color: #000000;
+    }
+
+  </style>
+
+
+
 {% endblock %}
