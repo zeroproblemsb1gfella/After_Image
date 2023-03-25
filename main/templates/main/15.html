@@ -7,6 +7,97 @@
 <br>
 <h5>Apollo 10 1/2 A Space Age Childhood</h5>
 <body>
-    CUSTOM STUFF LETS GOOOOOOOO
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>Four Columns Template</title>
+        <style>
+            /* Add styles for the columns and images */
+            .columns {
+              display: flex;
+              flex-wrap: wrap;
+            }
+            .column {
+              flex: 25%;
+              padding: 10px;
+              box-sizing: border-box;
+              
+              border: 3px solid #FAF1F3; ;
+              background-color: hsl(244, 88%, 10%);
+              position: relative;
+
+            }
+            .column img {
+              width: 100%;
+              height: auto;
+              border: 1px solid rgb(147,32,156);
+              transition: opacity 0.5s ease;
+              /* background-image: linear-gradient(to right, transparent 10%, rgba(0, 0, 0, 0.1) 20%);
+              animation: noise 2s infinite linear alternate-reverse; */
+
+            }
+            .column:hover img {
+              opacity: 0.9;
+              background-image: linear-gradient(to right, transparent 10%, rgba(0, 0, 0, 0.1) 20%);
+              animation: noise 10s infinite linear alternate-reverse;
+            }
+            .image-title {
+              margin-top: 0;
+              font-family: 'Orbitron', sans-serif;
+              font-size: 1rem;
+              font-weight: bold;
+              color: #FAF1F3; 
+            }
+            .image-description {
+              margin-bottom: 0;
+              font-family: 'Orbitron', sans-serif;
+              font-size: 1rem;
+              color: #FAF1F3; 
+            }
+
+
+            @keyframes noise {
+            0% {
+                transform:  scale(1);
+            }
+            50% {
+                transform:  scale(0.95);
+            }
+            100% {
+                transform:  scale(1);
+            }
+            }
+
+          </style>
+      </head>
+      <body>
+        <!-- <img src="https://www.whats-on-netflix.com/wp-content/uploads/2016/03/netflixoriginalseries.jpg" alt="Movie Poster"> -->
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/Dzuz5s_Qk-A" frameborder="0" allowfullscreen></iframe> -->
+        <div class="columns">
+          <div class="column">
+            <img src="https://images.unsplash.com/photo-1489549132488-d00b7eee80f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fHNwYWNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Image 1" style="height: 75%">
+            <h2 class="image-title">Mountain View</h2>
+            <p class="image-description">Jack Black, who voices older Stan, has a personal connection to NASA and the space program. His mother, Judith Love Cohen, helped develop the Abort-Guidance System which ultimately helped get Apollo 13 back to Earth, while she was pregnant with Jack.
+            </p>
+          </div>
+          <div class="column">
+            <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c3BhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="Image 2" style="height: 75%">
+            <h2 class="image-title">Beach Sunset</h2>
+            <p class="image-description">Parts of the filming were done in front of a green screen, and everything the characters did not interact with or touch was animated in post-production. Parts of the film, which were shot in live-action, were animated during post-production using a technique similar to the rotoscoping used in Linklater's Waking Life (2001) and A Scanner Darkly (2006).</p>
+          </div>
+          <div class="column">
+            <img src="https://images.unsplash.com/photo-1537420327992-d6e192287183?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3BhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="Image 3" style="height: 75%">
+            <h2 class="image-title">Cityscape</h2>
+            <p class="image-description">Richard Linklater was planning to create the film in live action but instead decided to go with an animation style influenced by Saturday morning cartoons because of the playful nature of animation. This proved controversial as the Academy of Motion Picture Arts and Sciences denied the movie eligibility for the Animated Feature category for the 2023 Academy Awards in July 2022. After an appeal from the filmmakers and the outcry of much of the industry, the decision was reverted in early January 2023.</p>
+          </div>
+          <div class="column">
+            <img src="https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c3BhY2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="Image 4" style="height: 75%">
+            <h2 class="image-title">Desert Landscape</h2>
+            <p class="image-description">Prior to the launch of Apollo 10½, Stan is seen reading the July, 1969 edition of Mad Magazine. (Although Apollo 10½ is said to have launched weeks before Apollo 11 on July 16, this would not be an anachronism, as Mad Magazine cover dates were generally 2-3 months later than their actual publication, so the July edition would have been on newsstands as early as May.)</p>
+          </div>
+        </div>
+      </body>
+    </html>
 </body>
 {% endblock %}
