@@ -1,12 +1,275 @@
 
 {%extends 'main/movie.html'%}
-
+{% load static %}
 {%block content%}
 {{block.super}}
-<br>
-<br>
-<h5>Its Such A Beautiful Day</h5>
-<body>
-    CUSTOM STUFF LETS GOOOOOOOO
-</body>
+
+<div class="image-container">
+    <img id="itssuchabeautifulday" src="{% static 'itssuchabeautifulday1.jpg'%}" alt="itssuchabeautifulday" width="50%" height = auto>
+    <script>
+        window.addEventListener("scroll", function() {
+        var image = document.getElementById("itssuchabeautifulday");
+        var text = document.querySelector(".text-container");
+        var border = document.querySelector(".image-container");
+        var imagePosition = image.getBoundingClientRect().top;
+        var screenPosition = window.innerHeight /0.5;
+
+        if (imagePosition < screenPosition) {
+            // Calculate the opacity value based on the distance between the image
+            // and the top of the viewport
+            var opacity = (screenPosition - imagePosition) / screenPosition;
+
+            // Update the opacity of the image, text, and border
+            image.style.opacity = opacity;
+            text.style.opacity = opacity;
+            border.style.opacity = opacity;
+
+
+        }
+        });
+
+      </script>
+
+    <div class="text-container">
+      <h2>It's Such a Beautiful Day</h2>
+      <p>Directed, Written, Animated, Photographed, and Produced by Don Hertzfeldt.</p>
+      <p>"It's Such a Beautiful Day" is an animated film that tells the story of Bill, a stick figure with a black top hat who is struggling with a severe mental illness that causes him to experience strange and terrifying hallucinations. The movie utilizes both offbeat humor and profound philosophical musings.</p>
+    </div>
+  </div>
+  <style>
+    .image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5em;
+    border: 10px double #ac9090;
+    padding: 1em;
+    position:relative;
+    background-color: #cccccc;
+  }
+  
+  #itssuchabeautifulday {
+    max-width: 50%;
+    margin-bottom: 1em;
+    margin-left: 2em;
+    border: 1px solid #cccccc;
+    padding: 0.5em;
+    background-image: linear-gradient(to right, transparent 10%, rgba(0, 0, 0, 0.1) 20%);
+    background-size: 2px 100%;
+    animation: noise 2s infinite linear alternate-reverse;
+  }
+  
+  .text-container {
+    flex-basis: 45%;
+    margin-left: 2em;
+  }
+  
+  h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: #c24d4d;
+  }
+  
+  p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+  .image-container, .text-container, #aftersun {
+  opacity: 0;
+}
+
+
+@keyframes noise {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(-15px);
+  }
+}
+
+</style>
+
+<div class="image-container2">
+    <div class="text-container2">
+      <h2>Style</h2>
+      <p>Throughout the film, Hertzfeldt uses a unique animation style that blends traditional hand-drawn animation with experimental techniques like stop-motion, time-lapse photography, and live-action footage. The result is a visually stunning and emotionally powerful film that explores themes of mental illness, family, and the human life.</p>
+    </div>
+    <img id="itssuchabeautifulday" src="{% static 'itssuchabeautifulday2.jpg'%}" alt="itssuchabeautifulday" width="30%" height = auto>
+    
+      <script>
+    window.addEventListener("scroll", function() {
+    var image = document.getElementById("itssuchabeautifulday");
+    var text = document.querySelector(".text-container2");
+    var border = document.querySelector(".image-container2");
+    var imagePosition = image.getBoundingClientRect().top;
+    var screenPosition = window.innerHeight /0.5;
+
+    if (imagePosition < screenPosition) {
+        // Calculate the opacity value based on the distance between the image
+        // and the top of the viewport
+        var opacity = (screenPosition - imagePosition) / screenPosition;
+
+        // Update the opacity of the image, text, and border
+        image.style.opacity = opacity;
+        text.style.opacity = opacity;
+        border.style.opacity = opacity;
+
+
+    }
+    });
+
+ 
+    </script>
+  </div>
+  
+  <style>
+    .image-container2 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 5em;
+      border: 10px double #ac9090;
+      padding: 1em;
+      position:relative;
+      background-color: #cccccc;
+    }
+    
+    #itssuchabeautifulday2 {
+      max-width: 45%;
+      margin-left: 2em;
+      margin-bottom: 1em;
+      border: 1px solid #cccccc;
+      padding: 0.5em;
+      background-image: linear-gradient(to right, transparent 10%, rgba(0, 0, 0, 0.1) 20%);
+      background-size: 2px 100%;
+      animation: noise 2s infinite linear alternate-reverse;
+    }
+    
+    .text-container2 {
+      flex-basis: 45%;
+      margin-left:5em;
+    }
+    
+    h2 {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 1em;
+      color: #c24d4d;
+    }
+    
+    p {
+      font-size: 1.2em;
+      line-height: 1.5;
+      color: #000000;
+    }
+  
+    .image-container2, .text-container2, #aftersun2 {
+      opacity: 0;
+    }
+  </style>
+
+<div class="image-container3">
+    <img id="itssuchabeautifulday3" src="{% static 'itssuchabeautifulday3.jpg'%}" alt="itssuchabeautifulday3" width=45% height = auto>
+    <script>
+        window.addEventListener("scroll", function() {
+        var image = document.getElementById("itssuchabeautifulday3");
+        var text = document.querySelector(".text-container3");
+        var border = document.querySelector(".image-container3");
+        var imagePosition = image.getBoundingClientRect().top;
+        var screenPosition = window.innerHeight /0.5;
+
+        if (imagePosition < screenPosition) {
+            // Calculate the opacity value based on the distance between the image
+            // and the top of the viewport
+            var opacity = (screenPosition - imagePosition) / screenPosition;
+
+            // Update the opacity of the image, text, and border
+            image.style.opacity = opacity;
+            text.style.opacity = opacity;
+            border.style.opacity = opacity;
+
+
+        }
+        });
+
+      </script>
+      
+    <div class="text-container3">
+      <h2>Awards</h2>
+      <p>Don Hertzfeldt's "It's Such a Beautiful Day" has been critically acclaimed, and received many accolades including being the runner-up for The Los Angeles Film Critics Association's 
+        "Best Animated Feature Film", being ranked #1 in The Film Stage's "Best Animated Films of the 21st Century", named #1 by The Wrap for "Best Animated Film of the 2010s", and #1 in IGN's
+        "Top 10 Animated Films of All Time" list. The film has been described as "one of the great outsider artworks of the modern era, at once sympathetic and shocking, beautiful and horrifying,
+        angry and hilarious, uplifting and almost unbearably sad"
+      </p>
+    </div>
+  </div>
+  <style>
+    .image-container3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5em;
+    border: 10px double #ac9090;
+    padding: 1em;
+    position:relative;
+    background-color: #cccccc;
+  }
+  
+  #itssuchabeautifulday3 {
+    max-width: 50%;
+    margin-bottom: 1em;
+    margin-left: 2em;
+    border: 1px solid #cccccc;
+    padding: 0.5em;
+    background-image: linear-gradient(to right, transparent 10%, rgba(0, 0, 0, 0.1) 20%);
+    background-size: 2px 100%;
+    animation: noise 2s infinite linear alternate-reverse;
+  }
+  
+  .text-container3 {
+    flex-basis: 45%;
+    margin-left: 2em;
+  }
+  
+  h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: #c24d4d;
+  }
+  
+  p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+  .image-container3, .text-container3, #aftersun3 {
+  opacity: 0;
+}
+
+
+
+
+@keyframes noise {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(-15px);
+  }
+}
+
+</style>
+
+
+
+
 {% endblock %}
