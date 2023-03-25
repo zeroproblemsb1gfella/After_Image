@@ -5,8 +5,66 @@
 {{block.super}}
 <br>
 <br>
-<h5>Infinity Pool</h5>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scroll Animation</title>
+	<style>
+		.text {
+			opacity: 0;
+			transform: translateY(100px);
+			transition: all 1.2s ease-in-out;
+            font-family: serif;
+            border: 5px inset #fdb6b6;
+            background: linear-gradient(to right, #651b1d, #7c1515, #b30f0f, #772222);
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+			font-size: 18px;
+			line-height: 1.5;
+			text-align: justify;
+                 
+		}
+
+		.text.animate {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+        .title{
+
+        }
+
+        .custom-image {
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+		}
+
+	</style>
+	<script>
+		    window.addEventListener('scroll', function() {
+			var text = document.querySelector('.text');
+			var position = text.getBoundingClientRect().top;
+			var windowHeight = window.innerHeight;
+			if (position < windowHeight - 100) {
+				text.classList.add('animate');
+			}
+		});
+	</script>
+</head>
 <body>
-    CUSTOM STUFF LETS GOOOOOOOO
+	<div style="height: 300px;">
+		<div class="text">
+			<h2><b>BRUH</b></h2>
+			<p><img src="https://lh3.googleusercontent.com/pw/AMWts8BawF4XmaAvMa3V-2mBT_-3Vi_s0AurWpx-42C5GhfgNSDLxiUpghXx5UMQzN5OgCa8nQ4hqBb6IA3KHPIvudKgKtdjY11Om__80B9_KLf5sNuakhJvWkECKCShUr70Uf0-9jKN84EZw2cLbuJavr4G=w1271-h715-no?authuser=0" width="300" height="200" class="custom-image"></p>
+		</div>
+	</div>
+
+    
+
 </body>
+
+</body>
+</html>
 {% endblock %}
