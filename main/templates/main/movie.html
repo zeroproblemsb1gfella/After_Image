@@ -1,60 +1,112 @@
-{%extends 'main/base.html'%}
+{% extends 'main/base.html' %}
 
-{%block content%}
-<h3>{{movie.title}}&nbsp;|&nbsp;{{movie.watched}} Watches</h3>
-{% if movie.image %}
-<img src="{{ movie.image.url }}" alt="img" style="height: 500px; width: auto; margin-right: 20px;" class="float-right">
-{% endif %}
-<body>
-    release date
-    <br>
-    {{movie.release_date}}
-    <br>
-    length
-    <br>
-    {{movie.length}} minutes
-    <br>
-    synopsis<br>
-    {{movie.synopsis}}
-</body>
-<br>
-<br>
-<br>
-<br>
-<form method = "post" action ="#">
-    {%csrf_token%}
-    {{form}}
-    <button type = "submit", name = "save">Create New</button>
-</form>
-<form method = "POST" action = "{% url 'toggle_watched' name title%}">
-    {%csrf_token%}
-    {% if watched.watched%}
-        <button type = "submit" class = "btn btn-success">Watched</button>
-    {%else%}
-        <button type = "submit" class = "btn btn-success">Not Watched</button>
-    {%endif%}
-</form>
-<br>
-<br>
+{% block content %}
 
-<h3>
-    <a href= "{%url 'discussionposts' ls.name movie.title %}">Discussion Posts</a>
-    </h3>
+<style>
+    .jumbotron {
+        opacity: 1.0;
+        transition: opacity 0.5s;
+    }
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<button onclick="goBack()">Return to Movies</button>
+    .jumbotron.fade-out {
+        opacity: 0.6;
+    }
+</style>
 
 <script>
-function goBack() {
-    window.history.back();
-}
+    window.addEventListener('scroll', function () {
+        var jumbotron = document.getElementById('fade');
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > 400) {
+            jumbotron.classList.add('fade-out');
+        } else {
+            jumbotron.classList.remove('fade-out');
+        }
+    });
+
 </script>
+
+<div class="jumbotron jumbotron-fluid" id="fade"
+    style="border-top: 5px solid #009bce; border-bottom: 5px solid #009bce;">
+    <div class="container" style="margin-left: 100px;">
+        <h1 class="display-4" style="color: black;" class="lead">{{ movie.title }}
+            {% if movie.image %}
+            <div class="jumbotron float-right" style="margin-right: -550px;">
+                <style>
+                    .movie-img {
+                        filter: contrast(100%);
+                        transition: all 1.0s ease-out;
+                    }
+
+                    .movie-img:hover {
+                        filter: contrast(200%);
+                    }
+                </style>
+                <style>
+                    .text-center form {
+                        margin-bottom: 5px;
+                        margin-top: -50px;
+
+                    }
+                </style>
+                <div class="text-center">
+                    <form method="POST" action="{% url 'toggle_watched' name title %}">
+                        {% csrf_token %}
+                        {% if watched.watched %}
+                        <button type="submit" class="btn btn-success">Watched</button>
+                        {% else %}
+                        <button type="submit" class="btn btn-success">Not Watched</button>
+                        {% endif %}
+                    </form>
+                </div>
+                <img src="{{ movie.image.url }}" alt="img" class="movie-img" style="height: 500px; width: 350px;">
+
+                <style>
+                    .text-center h3 {
+                        margin-top: 15px;
+                        text-decoration: underline;
+                        color: #009bce;
+                    }
+
+                    .text-center button {
+                        margin-top: -25px;
+                    }
+                </style>
+
+                <div class="text-center">
+                    <h3>
+                        <a href="{% url 'discussionposts' ls.name movie.title %}">Discussion Posts</a>
+                    </h3>
+                    <button onclick="goBack()" class="btn btn-primary">Return to Movies</button>
+                    <script>
+                        function goBack() {
+                            window.history.back();
+                        }
+                    </script>
+                </div>
+
+
+            </div>
+
+            {% endif %}
+        </h1>
+        <p class="lead" style="color: black;">{{ movie.watched }} Watches</p>
+
+        <hr class="my-4">
+        <p style="color: black;" class="lead">Release Date: {{ movie.release_date }}</p>
+        <p style="color: black;" class="lead">Length: {{ movie.length }} minutes</p>
+        <p style="color: black;" class="lead">Synopsis: {{ movie.synopsis }}</p>
+        <br>
+        <form method="post" action="#">
+            {% csrf_token %}
+            <p class="lead" style="color: black;">{{ form.post }}</p>
+            <button type="submit" name="save" class="btn btn-primary">Submit Post</button>
+        </form>
+
+        <br>
+
+    </div>
+</div>
 
 {% endblock %}
