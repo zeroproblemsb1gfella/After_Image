@@ -15,7 +15,7 @@
       <h3>{{ movie.title }}&nbsp;|&nbsp;{{ movie.watched }} Watches</h3>
       <p>{{ movie.synopsis }}</p>
       <hr>
-      <div class="discussion-post" style="background-color: rgba(0, 0, 0, 0.39); padding: 20px; border-radius: 10px;">
+      <div class="discussion-post" style="background-color: rgba(0, 0, 0, 0.39); padding: 20px; border-radius: 10px; margin-right: 80px">
         <div class="row">
           <div class="col-md-8">
             <h6>{{ discussionpost.user }}</h6>
@@ -36,9 +36,9 @@
             <form method="POST" action="{% url 'toggle_likes' name title id %}">
               {% csrf_token %}
               {% if liked.liked %}
-                <button type="submit" class="btn btn-success float-end mt-3">Liked</button>
+                <button type="submit" class="btn btn-success float-end mt-3">Unlike</button>
               {% else %}
-                <button type="submit" class="btn btn-success float-end mt-3">Not Liked</button>
+                <button type="submit" class="btn btn-success float-end mt-3">Like</button>
               {% endif %}
             </form>
           </div>
@@ -54,5 +54,12 @@
     </div>
   </div>
 </div>
+
+<style>
+  .container{
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+</style>
 
 {% endblock %}
