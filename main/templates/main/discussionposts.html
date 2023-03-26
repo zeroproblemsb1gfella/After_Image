@@ -3,22 +3,23 @@
 {%block content%}
 <div class = "main">
     <div class = "movieTittle">
-        <h3>{{movie.title}}&nbsp;|&nbsp;{{movie.watched}} Watches</h3>
+        <h3 style="color: black;">{{movie.title}}&nbsp;|&nbsp;{{movie.watched}} Watches</h3>
     </div>
-    <body>
+    <body style="color: black;">
         {{movie.synopsis}}
     </body>
-    <hr color="#0752a7">
+    <hr color="#39c6fe">
     <h3>Discussion Posts</h3>
    <div class = "posts">
         <body>
             {% for discussionpost in discussionposts %}
             {{discussionpost.user}}
-            <li>
-                <a href= "{%url 'discussionpost' discussionpost.movie.movie_list.name discussionpost.movie.title discussionpost.id%}">{{discussionpost.post}}&nbsp;|&nbsp;{{discussionpost.post_likes}} Likes
-                </a>
-                <hr color="#fff">
-            </li>
+            <div class = single>
+                <li>
+                    <a href= "{%url 'discussionpost' discussionpost.movie.movie_list.name discussionpost.movie.title discussionpost.id%}">{{discussionpost.post}}&nbsp;|&nbsp;{{discussionpost.post_likes}} Likes
+                    </a>
+                </li>
+            </div>
             <br>
             {%endfor%}
         </body>
@@ -29,13 +30,20 @@
     <style type="text/css">
         .main{
             border:25px solid#0000;
+            margin-left: 20px;
+            margin-top: 30px;
+            background-color: aliceblue;
         }
         .movieTittle{
-            background-color: #0752a7;
+            background-color: #39c6fe;
         }
         .posts{
-            background-color: #796f5d;
+            border:1px solid#000000;
+            background-color: white;
             padding: 0 40px;
+        }
+        .single{
+            border:1px solid#000000;
         }
     </style>
 </body>
