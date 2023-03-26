@@ -1,110 +1,135 @@
 <div class="carousel-inner">
-    <div class="carousel-item active">
-      <form method="POST" class="form-group position-fixed top-0 start-50 translate-middle-x">
-        {% csrf_token %}
-        {% load crispy_forms_tags %}
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-primary">Register</button>
-		<a href="{% url 'login' %}" class="btn btn-primary">Login Instead</a>
-      </form>
-      <img class="d-block w-100" src="https://lh6.googleusercontent.com/bDNExUeTTz75rYrh7GGgsRCAuk41WHyd-KtzcPYsJXb4EGUOg0aYd4xqibXByXbY8Vk=w2400" alt="First slide">
-    </div>
-
-  
-<style>
-
-#carousel_registerlogin .carousel-inner img {
-    height: 100vh;
-}
-
-</style>
-
-  
-<!doctype html>
-<html>
+	<div class="carousel-item active">
+		<form method="POST" class="form-group position-fixed top-0 start-50 translate-middle-x">
+			{% csrf_token %}
+			{% load crispy_forms_tags %}
+			{{ form|crispy }}
+			<button type="submit" class="btn btn-primary">Register</button>
+			<a href="{% url 'login' %}" class="btn btn-primary">Login Instead</a>
+		</form>
+		<img class="d-block w-100"
+			src="https://lh3.googleusercontent.com/JbfW-8177ckOEiqL63oyZjpcSCywpWRQ3xz0kyKSs0YysSPdt94QbASFFAU1WYB-P9Q=w2400"
+			alt="First slide">
+	</div>
 
 
-<head>
-    <style type="text/css">
-		/* Style the navigation menu */
-		nav {
-			background-color: #1abc9c;
-			overflow: hidden;
-			box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.3);
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-			text-transform: uppercase;
-			letter-spacing: 2px;
-			position: fixed;
-            left: 0;
-            right: 0;
-            bottom: 1;
-            text-align: center;
+	<style>
+		#carousel_registerlogin .carousel-inner img {
+			height: 100vh;
 		}
-
-        form {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-            z-index: 1;
-        }
+	</style>
 
 
-		/* Style the links inside the menu */
-		nav a {
-			display: inline-block;
-			color: white;
-			text-align: center;
-			padding: 20px 30px;
-			text-decoration: none;
-			transition: all 0.3s ease;
-		}
-
-		/* Change color on hover */
-		nav a:hover {
-			background-color: #16a085;
-		}
-
-		/* Add indicator for active link */
-		nav .active {
-			background-color: #16a085;
-		}
-
-		/* Add arrow to active link */
-		nav .active:after {
-			content: '';
-			position: absolute;
-			top: 100%;
-			left: 50%;
-			margin-left: -10px;
-			border-width: 10px;
-			border-style: solid;
-			border-color: transparent transparent #16a085 transparent;
-		}
-
-        
-
-        </style>
-    <title>Create an Account</title>
-
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
+	<!doctype html>
+	<html>
 
 
+	<head>
+		<style type="text/css">
+			nav {
+				background-color: #1abc9c;
+				overflow: hidden;
+				box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.3);
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				position: fixed;
+				left: 0;
+				right: 0;
+				bottom: 1;
+				text-align: center;
+			}
 
-<body>
+			form {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				margin: 0 auto;
+				padding: 20px;
+				background-color: white;
+				box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+				z-index: 1;
+			}
+
+			nav a {
+				display: inline-block;
+				color: white;
+				text-align: center;
+				padding: 20px 30px;
+				text-decoration: none;
+				transition: all 0.3s ease;
+			}
+
+			nav a:hover {
+				background-color: #16a085;
+			}
+
+			nav .active {
+				background-color: #16a085;
+			}
+
+			nav .active:after {
+				content: '';
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				margin-left: -10px;
+				border-width: 10px;
+				border-style: solid;
+				border-color: transparent transparent #16a085 transparent;
+			}
+
+			body {
+				overflow-x: hidden;
+				overflow-y: scroll;
+			}
+
+			.bodyText {
+				display: flex;
+				justify-content: left;
+				align-items: center;
+				max-height: 90px;
+			}
+
+			body::-webkit-scrollbar {
+				width: 10px;
+				height: 10px;
+			}
+
+			body::-webkit-scrollbar-track {
+				background-color: rgba(255, 255, 255, 0.313);
+			}
+
+			body::-webkit-scrollbar-thumb {
+				background-color: rgba(0, 0, 0, 0.569);
+				opacity: 0.7;
+			}
+		</style>
+		<title>Create an Account</title>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</head>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<body>
 
 
-</body>
-</html>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
+
+
+	</body>
+
+	</html>
