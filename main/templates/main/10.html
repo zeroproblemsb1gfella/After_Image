@@ -1,12 +1,150 @@
 
 {%extends 'main/movie.html'%}
-
 {%block content%}
 {{block.super}}
-<br>
-<br>
-<h5>Close</h5>
-<body>
-    CUSTOM STUFF LETS GOOOOOOOO
-</body>
+
+<style>
+  body {
+      background: linear-gradient(to left, transparent 10%, #FFC0CB 20%);
+      background-size: 100%;
+  }
+</style>
+
+<div style="text-align:center;">
+  <h3>Trailer</h3>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/6EJGnU2AmV4" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div class="image-container">
+    <img id="close1" src="https://lh5.googleusercontent.com/9cBLllMJhv5WoDgStExV3bTPQOVTj2qSss1XrfpVV2nOMNkxtEnVCaOcOb5FZ4MvZhY=w2400" width="50%" height = auto>
+
+
+    <div class="text-container">
+      <h2>OSCAR NOMINATION</h2>
+      <p>
+        During 2023, Close was nominated as the Best International Feature Film by the Academy Awards in USA. Though they did not win the oscar,
+        "close" has won 48 awards and 60 nominations even though it just got released 1 year ago! This movie is a "must watch" if you are seeking
+        a wholesome and drama filled childhood friendship movie
+      </p>
+    </div>
+  </div>
+  <style>
+    .image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5em;
+    border: 10px double #ff0000;
+    padding: 1em;
+    position:relative;
+    background-color: #add8e6;
+  }
+  
+  #apageofmadness {
+    max-width: 50%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 2em;
+    border: 1px solid #cccccc;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    padding: 0.5em;
+    background-image: linear-gradient(to right, transparent 10%, #cccccc 20%);
+    background-size: 2px 100%;
+  }
+
+  #apageofmadness:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+  border: none;
+  }
+
+  .text-container {
+    flex-basis: 45%;
+    margin-left: 2em;
+  }
+  
+  .text-container h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: #333333 ;
+  }
+  
+  p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+</style>
+
+<div class="image-container2">
+    <div class="text-container2">
+      <h2>DIRECTOR</h2>
+      <p>
+        Lukas Dhont has won 58 awards and been nominated for 41 currently. His best movies are "Close" and "Girl" which make up
+        the majority of his awards and nominations. Lukas Dhont is stil 31 years old and we are sure to see more award winning
+        shows from him in the future. 
+      </p>
+      <p>
+        Emotionality is often something that we put under intelligence; we put the language of the heart under the language of 
+        the head. I think it's actually really difficult to make people feel honest, authentic emotions. Because from the moment 
+        that it feels constructed, I'm out of there—like, I'm gone, ciao. -Lukas Dhont
+      </p>
+    </div>
+    <img id="close2" src="https://lh4.googleusercontent.com/IidIIa0ucEYO9frlzGAP2k8cY52Bdm5h95UxUAzw453yRcQLcuVsorcqTAT-Uf71Kvc=w2400" width="40%" height = auto>
+
+  </div>
+  
+  <style>
+    .image-container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5em;
+    border: 10px double #ff0000;
+    padding: 1em;
+    position:relative;
+    background-color: #add8e6;
+  }
+    
+    #apageofmadness2 {
+    max-width: 50%;
+    margin-bottom: 1em;
+    margin-right: 2em;
+    border: 1px solid #cccccc;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    padding: 0.5em;
+    background-image: linear-gradient(to right, transparent 10%, #cccccc 20%);
+    background-size: 2px 100%;
+  }
+
+    #apageofmadness2:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+    border: none;
+    }
+    
+    .text-container2 {
+      flex-basis: 45%;
+      margin-left:5em;
+    }
+    
+    .text-container2 h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: #333333 ;
+    }
+  
+    p {
+        font-size: 1.2em;
+        line-height: 1.5;
+        color: #000000;
+    }
+
+  </style>
+
 {% endblock %}
