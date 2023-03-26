@@ -1,19 +1,42 @@
 {%extends 'main/base.html'%}
 
 {%block content%}
-<h3>{{movie.title}}&nbsp;|&nbsp;{{movie.watched}} Watches</h3>
-<body>
-    {{movie.synopsis}}
-</body> 
-<br></br>
-<h3>Discussion Posts</h3>
+<div class = "main">
+    <div class = "movieTittle">
+        <h3>{{movie.title}}&nbsp;|&nbsp;{{movie.watched}} Watches</h3>
+    </div>
+    <body>
+        {{movie.synopsis}}
+    </body>
+    <hr color="#0752a7">
+    <h3>Discussion Posts</h3>
+   <div class = "posts">
+        <body>
+            {% for discussionpost in discussionposts %}
+            {{discussionpost.user}}
+            <li>
+                <a href= "{%url 'discussionpost' discussionpost.movie.movie_list.name discussionpost.movie.title discussionpost.id%}">{{discussionpost.post}}&nbsp;|&nbsp;{{discussionpost.post_likes}} Likes
+                </a>
+                <hr color="#fff">
+            </li>
+            <br>
+            {%endfor%}
+        </body>
+   </div>
+</div>
 
 <body>
-    {% for discussionpost in discussionposts %}
-    {{discussionpost.user}}
-        <li><a href= "{%url 'discussionpost' discussionpost.movie.movie_list.name discussionpost.movie.title discussionpost.id%}">{{discussionpost.post}}&nbsp;|&nbsp;{{discussionpost.post_likes}} Likes</a></li>
-        
-        <br>
-    {%endfor%}
+    <style type="text/css">
+        .main{
+            border:25px solid#0000;
+        }
+        .movieTittle{
+            background-color: #0752a7;
+        }
+        .posts{
+            background-color: #796f5d;
+            padding: 0 40px;
+        }
+    </style>
 </body>
 {% endblock %}
