@@ -1,42 +1,58 @@
-{%extends 'main/base.html'%}
+{% extends 'main/base.html' %}
 
-{%block content%}
+{% block content %}
+<head>
+<script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  </script>
+</head>
 
-<h3>{{movie.title}}&nbsp;|&nbsp;{{movie.watched}} Watches</h3>
-<body>
-    {{movie.synopsis}}
-</body>
-<br></br>
-
-<h6>{{discussionpost.user}}</h6>
-<h5>{{discussionpost.post}}&nbsp;</h5>
-
-<h7>&nbsp;{{discussionpost.post_likes}} Likes</h7>
-<br>
-<br>
-<body>
-    {% for comment in discussionpost.comment_set.all %}
-        {{comment.user}}
-        <li>{{comment.comment}}</li>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h3>{{ movie.title }}&nbsp;|&nbsp;{{ movie.watched }} Watches</h3>
+      <p>{{ movie.synopsis }}</p>
+      <hr>
+      <div class="discussion-post" style="background-color: rgba(0, 0, 0, 0.39); padding: 20px; border-radius: 10px;">
+        <div class="row">
+          <div class="col-md-8">
+            <h6>{{ discussionpost.user }}</h6>
+            <h5>{{ discussionpost.post }}&nbsp;</h5>
+            <h7>&nbsp;{{ discussionpost.post_likes }} Likes</h7>
+            <br>
+            <br>
+            <div class="comments">
+              {% for comment in discussionpost.comment_set.all %}
+                <div class="comment">
+                  <p><strong>{{ comment.user }}</strong></p>
+                  <p>{{ comment.comment }}</p>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="col-md-4">
+            <form method="POST" action="{% url 'toggle_likes' name title id %}">
+              {% csrf_token %}
+              {% if liked.liked %}
+                <button type="submit" class="btn btn-success float-end mt-3">Liked</button>
+              {% else %}
+                <button type="submit" class="btn btn-success float-end mt-3">Not Liked</button>
+              {% endif %}
+            </form>
+          </div>
+        </div>
         <br>
-    {%endfor%}
-</body>
-<br>
-<br>
-<form method = "POST" action = "{% url 'toggle_likes' name title id%}">
-    {%csrf_token%}
-    {% if liked.liked%}
-        <button type = "submit" class = "btn btn-success">Liked</button>
-    {%else%}
-        <button type = "submit" class = "btn btn-success">Not Liked</button>
-    {%endif%}
-</form>
-<br>
-<br>
-<form method = "post" action ="#">
-    {%csrf_token%}
-    {{form}}
-    <button type = "submit", name = "save">Create New</button>
-</form>
+        <br>
+        <form method="post" action="#">
+          {% csrf_token %}
+          {{ form }}
+          <button type="submit" name="save" class="btn btn-primary">Create New</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
