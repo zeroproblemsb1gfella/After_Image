@@ -1,12 +1,93 @@
-
 {%extends 'main/movie.html'%}
 
 {%block content%}
 {{block.super}}
 <br>
 <br>
-<h5>Under The Banner of Heaven</h5>
+
 <body>
-    CUSTOM STUFF LETS GOOOOOOOO
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card glassmorphism mb-2">
+                    <img src="https://lh5.googleusercontent.com/JJSBgcLRruyz1adJEC1fuHvx6Y2pAKKKkOi_NnDJYyu4myor0vhffj72k2P0PQkZyg4=w2400"
+                        class="card-img-top" alt="InformationPiece 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Team of Directors (Photo Consists of David Mackenzie):</h5>
+                        <p class="card-text">Director: David Mackenzie (Main), Courtney Hunt, Dustin Lance Black, Isabel
+                            Sandoval, Thomas Schlamme</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card glassmorphism mb-2">
+                    <img src="https://lh4.googleusercontent.com/4llAbrOiUP2KLkPWlg0RNr337jQ9aVOysdiIQplzkCtvelU6qbZESMYMDShXHKnR1Fg=w2400"
+                        class="card-img-top" alt="InformationPiece 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Tidbits:</h5>
+                        <p class="card-text">Genres: Crime, Psychological, Drama</p>
+                        <p class="card-text">Interesting Facts: The story is loosely based on a real story and the real
+                            case within the movie occurred inside an American city known as American Fork. The show was
+                            filmed in Alberta, Canada. The murders within the show occurred in real life in 1984.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <br><br>
+                <div class="card glassmorphism mb-2">
+                    <img src="https://lh5.googleusercontent.com/rRnEAAxdWnIbf44KehlHEsNKk7NbIiYFdYcTRARltS_2WCTi4IR7WFzdH2KCBpmHmvE=w2400"
+                        class="card-img-top" alt="InformationPiece 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Extended Synopsis:</h5>
+                        <p class="card-text">The show was largely based on the true crime story and nonfiction book
+                            written by Jon Krakauer. Detective Jeb Pyre upon the investigation of a murder of a saint
+                            mother and her baby daughter that were involved in a church had caused his mind to whither.
+                            The story places a lot of emphasis on the themes portrayed by religiosity and family and how
+                            the mind of the detective comes to terms with the things that are keeping him afloat in his
+                            mind and the things that can drift away his sanity and what possible outcomes lay for him
+                            yet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <br><br>
+                <div class="card glassmorphism mb-2">
+                    <img src="https://lh6.googleusercontent.com/qHEtmJe0PQ8HZ68Bhy058CkV12xi4LQU5w9SEOMychiXVxlUWNsReJAF6M4bTV4iLYk=w2400"
+                        class="card-img-top" alt="InformationPiece 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Thought-Provoking Quotes:</h5>
+                        <p class="card-text">- "How can we measure the abbreviation of a mortal life when considered
+                            next to one’s eternal salvation?"</p>
+                        <p class="card-text">- "My family became my faith."</p>
+                        <p class="card-text">- "Our forebearers never fretted about how much they risked standing firm
+                            in their faith."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .glassmorphism {
+            background-color: rgba(255, 255, 255, 0.17);
+            border-radius: 20px;
+            box-shadow: 0px 8px 32px rgba(1, 0, 0, 0.24);
+            border: 2.5px solid rgba(255, 255, 255, 0.17);
+            transition: all 0.4s ease;
+        }
+
+        .glassmorphism:hover {
+            transform: scale(1.04);
+            box-shadow: 1px 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            font-family: sans-serif;
+            font-size: 20px;
+        }
+    </style>
+
 </body>
 {% endblock %}

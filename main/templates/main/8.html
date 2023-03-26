@@ -1,12 +1,90 @@
-
 {%extends 'main/movie.html'%}
 
 {%block content%}
 {{block.super}}
 <br>
-<br>
-<h5>FforFake</h5>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+    p {
+        font-family: sans-serif;
+        font-size: 20px;
+    }
+
+    h2 {
+        margin-bottom: 2rem;
+    }
+
+    .section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .background-author {
+        background-color: #e3e3e3;
+    }
+
+    .background-quotes {
+        background-color: #c4c4c4;
+    }
+
+    .background-briefing {
+        background-color: #9c9c9c;
+    }
+
+    .container {
+        max-width: 960px;
+    }
+
+    .card-img-top {
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        padding: 4px;
+    }
+</style>
+</head>
+
 <body>
-    CUSTOM STUFF LETS GOOOOOOOO
-</body>
-{% endblock %}
+    <section class="section background-author">
+        <div class="container">
+            <h2>Directed by Orson Welles</h2>
+            <img src="https://lh4.googleusercontent.com/VmLvAjNfLdd_IGI9DsHaCPQ405eEObwoG4d-TEc1ixr9EfHAP9JXzgI32DdpfrHny4Y=w2400"
+                class="card-img-top" alt="img1">
+
+            <p><br>Born in Wisconsin, United States, Orson Welles was a quite influential filmmaker who has a legendary
+                reputation but has seen decreased conversation in the film-space. Though his precedent reputation is
+                known by many, he still deserves to have a piece of fame among the countless authors every now and then
+                as a form of respect and tribute to this legendary filmmaker.</p>
+        </div>
+    </section>
+
+    <section class="section background-quotes">
+        <div class="container">
+            <h2>Quote by the Author:</h2>
+            <img src="https://lh6.googleusercontent.com/mq0EKnM2cN-sHUHo0zDbRRH3xJK6AyidzbD5GHQhndktoFLfEv3ka51IxhzkHKPYgIw=w2400"
+                class="card-img-top" alt="img2">
+            <p><br>- "Our works in stone, in paint, in print, are spared, some of them, for a few decades or a
+                millennium or two, but everything must finally fall in war, or wear away into the ultimate and universal
+                ash - the triumphs, the frauds, the treasures and the fakes. A fact of life: we're going to die."</p>
+            <p>- "Be of good heart, cry the dead artists out of the living past. Our songs will all be silenced, but
+                what of it? Go on singing. Maybe a man's name doesn't matter all that much."</p>
+            <p>- "Reality? It's the toothbrush, waiting at home for you in its glass. A bus ticket. A paycheck."</p>
+            <p>- "I find I need something - to believe. I must believe that art, itself, is real. If it is not, Señor?"
+            </p>
+        </div>
+    </section>
+
+    <section class="section background-briefing">
+        <div class="container">
+            <h2>Briefing:</h2>
+            <img src="https://lh5.googleusercontent.com/nA77KaWb4q_SPBtE0OUbTCOB5FUIWlHOPdoTrw1jSGCdZ160LnKYwHDYDXkskpUCVGI=w2400"
+                class="card-img-top" alt="img3">
+            <p><br>Genres: Documentary, Drama</p>
+            <p>Questions Posed By This Work: What does it mean to be a Human? What Morality do we govern ourselves by,
+                do we uphold the same standards to others? Are we always honest with ourselves? What are the tenets and
+                foundations of fraudulent activity?</p>
+        </div>
+    </section>
+
+
+    {% endblock %}

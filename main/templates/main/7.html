@@ -1,12 +1,73 @@
-
 {%extends 'main/movie.html'%}
 
 {%block content%}
 {{block.super}}
 <br>
 <br>
-<h5>Blue</h5>
-<body>
-    CUSTOM STUFF LETS GOOOOOOOO
-</body>
+<style>
+    body {
+        background: linear-gradient(#002f7a 0%, #002f7a 50%);
+        background-size: 100%;
+    }
+</style>
+
+
+<div class="container">
+    <div class="content">
+        <div class="card glassmorphism mb-4">
+            <div class="card mb-3"
+                style="background-color: rgba(255, 255, 255, 0.197); backdrop-filter: blur(10px); border: none;">
+                <img src="https://lh3.googleusercontent.com/xQOMZmjgj8C_XLbCLOSvW1CJSvbztLn21auda5YykUsvLHgLS3qimFRcKxgxDypPWfI=w2400"
+                    class="card-img-top" alt="InformationPiece 1">
+                <div class="card-body">
+                    <h5 class="card-title">Directed by Derek Jarman:</h5>
+                    <p class="card-text">Born in Middlesex, England, Derek Jarman became an artist through his ventures
+                        in filmmaking and persevering through the difficulties posed by his health and other venues
+                        within his work in determining and deciding different creative outlooks to explore within his
+                        films</p>
+                </div>
+            </div>
+        </div>
+        <div class="card glassmorphism mb-4">
+            <div class="card mb-3"
+                style="background-color: rgba(255, 255, 255, 0.197); backdrop-filter: blur(10px); border: none;">
+                <img src="https://lh5.googleusercontent.com/yXde4j95SgrWsaPIaJNMdAh5o9lO3AD4JVKhvuFUlj5OrpY2Tf6_TWEuZxvQF5m3m-0=w2400"
+                    class="card-img-top" alt="InformationPiece 2">
+                <div class="card-body">
+                    <h5 class="card-title">Genres:</h5>
+                    <p class="card-text">Documentary, Drama, Historical, Biography</p>
+                    <h5 class="card-title">Budget:</h5>
+                    <p class="card-text">90,000 EUR</p>
+                    <h5 class="card-title">Extended Information:</h5>
+                    <p class="card-text">The entire film from a visual perspective is quite literally a blue screen.
+                        There is a heavy emphasis on audiowork and voiceovers. Within the film’s voiceover, it is spoken
+                        by Jarman and other collaborators in the form of Tilda Swinton, Nigel Terry and John Quentin.
+                        The text is often spoken in a form of verse and is augmented by music and sound by composer
+                        Simon Fisher-Turner, Coil, Momus, Karol Szymanowski and Eric Satie.Towards the end of 1992 when
+                        Jarman has come back to Blue in his original thoughts,he wanted a blue screen that was
+                        completely devoid of imagery so that “the admirable austerity of the void” would not be
+                        undermined. Jarman had then explained in a late proposal for the film: “The monochrome is an
+                        alchemy, effective liberation from personality. It articulates silence. It is a fragment of an
+                        immense work without limit. The blue of the landscape of liberty.”</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .glassmorphism {
+        background-color: rgba(255, 255, 255, 0.197);
+        border-radius: 20px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(15px);
+        transition: all 0.4s ease;
+    }
+
+    .glassmorphism:hover {
+        transform: scale(1.03);
+    }
+</style>
+
+
 {% endblock %}
