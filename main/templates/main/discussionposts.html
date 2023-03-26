@@ -15,12 +15,9 @@
             {% for discussionpost in discussionposts %}
             {{discussionpost.user}}
             <div class = single>
-                <li>
-                    <a style="color: black;"  href= "{%url 'discussionpost' discussionpost.movie.movie_list.name discussionpost.movie.title discussionpost.id%}">{{discussionpost.post}}&nbsp;
-                    </a>
-                </li>
-                <a style="color: #39c6fe;"> &nbsp;{{discussionpost.post_likes}} Like</a>
+                <a style="color: black;"  href= "{%url 'discussionpost' discussionpost.movie.movie_list.name discussionpost.movie.title discussionpost.id%}">{{discussionpost.post}}&nbsp;</a>
             </div>
+            <a style="color: #39c6fe;"> &nbsp;{{discussionpost.post_likes}} Like</a>
             <br>
             {%endfor%}
         </body>
