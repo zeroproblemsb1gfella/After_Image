@@ -1,12 +1,96 @@
-
 {%extends 'main/movie.html'%}
 
 {%block content%}
 {{block.super}}
 <br>
 <br>
-<h5>Pickpocket</h5>
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.text {
+			opacity: 0;
+			transform: translateY(100px);
+			transition: all 1.2s ease-in-out;
+            font-family: serif;
+            border: 5px inset #c2bf0d;
+            background: linear-gradient(to bottom, #585858, #555555, #2b2b2b, #505050);
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+			font-size: 25px;
+			line-height: 1.5;
+			text-align: justify;
+			margin-bottom: 25px;
+		}
+
+		.text.animate {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.title{
+			color: #fbff00;
+		}
+
+        .custom-image {
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+		}
+
+		img {
+			float: right;
+			margin-left: 30px
+		}
+
+	</style>
+	<script>
+		window.addEventListener('scroll', function() {
+		var text = document.querySelectorAll('.text');
+			text.forEach(function(el) {
+			var position = el.getBoundingClientRect().top;
+			var windowHeight = window.innerHeight;
+			if (position < windowHeight - 50) {
+				el.classList.add('animate');
+			}
+			});
+		});
+	</script>
+</head>
 <body>
-    CUSTOM STUFF LETS GOOOOOOOO
+		<div class="text">
+			<div class="title">
+			<h2><b>Pickpocket</b></h2>
+			</div>
+		<div class="img">
+			<p><img src="https://lh3.googleusercontent.com/Y3LQaQnGCNXNHIYy1CU_5XJu8ADuPFIPUSdijxeVLzsCCp-sNav88EzDJ32__LIwpSJGGbSpqZdHrwywtLBQqiLtJKKHQNX3KNarpddpXLudW3nmNLcP-TK0UJahr3Ar5UJIqKtYVs7CkgN51PucoOij3SZ4qbb3mnr1kS8sX14xwrWopuipA4G4mutPPVLEPuA_9Z8-tWVQsBWHCQoJ6BmTMW_otmTFNUlrkpnHREbt1f2QnsMbwntunFu0Woq2Y0Alug3I9UKG6jRmqrIhX_QImxJVIaJBYH4dRqGUwnItSOLhbf_KTOO7yy1t1jueEzx9fMCG0e3XWN5kndY4607qLO1bD7ulJscdmyE8NZXzAGhnE_ZKPJLEEouIDql-LOOG24E5yVpy902uUpoaAnMmWBdbgY8naeBAEJVZ_TxomnYf5qYX9o_bcfuZA4qI0IQVM6hAhpbM6Jw-7o5ZQBd28HLCysi5GlycPUPK0OVpccZFgD6_nOIf_ZhZ3Nurij2hHYjCbaQH8kTLYIZlN9Z3usn3860FDnc4ByZKNw5ap3GtsxjD5Ttubk2b0qfEj5RtflVGivAGuq1HAXkyu4KTD62V4nfyhh4CE1V6St9N1RhoR9epeo1i9gs7Kz8ZXyG6zXbRSS7oRcvyn9uLwTqv7p-hpkdNQj2p334Ttvz0F8OdncGLiOLrtK_groK8AHHgKYyInJElsT4rpy-87bt9mjm0CCgDI0jkihsxK2DgNCX7t0xiNN4mNlEEw0sEb4SSnDrDM3Tb7F5CaJb7LLxaM5ry5xjqzVdOnbkqvSEiMHsnL_oubylhdvY8KfyJg5_sH5emIG2Zn06-CJyOUkbIpgmPwRRIyL2sxeV1DcUoxHUBzJqpXI285SUfv7wW2CL_UU3_Jiwyplc0uFGhwv7iVDohDj8qkwWP2zNX33Cb8wcsyX4UlHGdcOZ-pl3x2fEIJzN2mANdMsdzMUGfz8vuzjQWxmHh75pFPiD7rHroMAV2tGzbKHBk=w716-h482-no?authuser=0" width="300" height="200" class="custom-image"></p>
+		</div>
+			<p>Directed By: Robert Bresson </p>
+			<p>Starring: Martin LaSalle as Michel | Marika Green as Jeanne | Jean Pélégri as L'inspecteur principal</p>
+			<p>Pickpocket is a French film that tells the story of Michel. A man who under his undesirable circumstances turns to pickpocketing in order to survive.
+            As Michel hones his skills, he latches on unwanted police attention and dispite objections from his friends, family and potential lover he has a hard time
+            resisting the urge to steal. 
+            </p>
+		</div>
+	</div>
+
+	<div class="text">
+		<div class="title">
+		  <h2><b>Masterpiece of French Cinema</b></h2>
+		</div>
+		<div class="img">
+			<p><img src="https://lh3.googleusercontent.com/4X-KvjPEavaBd1hzjNC-cwsq1mG50AC2CSmtiEE1f_qKjAZ8jARLSmNmlzaYMCQ6xVI6iJ3XeugKpzaRQje_OT3-bVJJJBnynTLp-ROgSdEXxCKI6Qz8FzC7f8OdIilUEpHAQmUASaCrUDoYKLHKA6kgImyqGs1OzZ8yrhj6_mCiyes-p4Duee6qASlVHxSOlJtt7TzN2soAqEAHwCZH99W1FxLO6BNrx8ZVEoLOTlFCUnmO6vx6Y0kS6EmRoFSFlW9G1E3DgoMC1LfMt3XzDcn3XBoAdKoEOiU_Xg6dDe1zACVYqb2BJZIRJJBadYs2z432012eiJh-U_8xBbTWDxbYbdn61I1-qqqCFzVqIxA9Ydq9Z1qcDo61iXEfXldeTObxVcfQrQSp-04KlaPqhgFow3ZNCFh4HcX0RUZwFvCIsrOOTrCi14iNyPXlmzjzcrNpxtV4XJey4qokEMlFiTASG7iwG_ZDHhsCLVMDVfw6mIBDDCvZJ-Nyi2IMT6MQdkgB1d2Sxs5wa8RKK0cLmb40JyRIgXyJd219X0yqmD9RYXif4-7zaryT3F_iz5Vsh_mjed6xAnkUxYNsoVfw_BHNNKK8GLZLC6430sC7Jlk4lRNBD0o126K40_TQo9YO5Y6EoziEDxVyb6HmXEfj8XbVJst93BG9ke1W6U3g0xdbW7-VrHYCwB-Mi2gUwzY_Wr-igFPXnpWn6QaUqa2vapu0j0TQtnmaBQQK_70Yc3x9F9RMXyx75yBk_SEFNoPjLbN-zfjDVVzGoonp4KTM0J1ZDMfPXRXS4pbFziCePQXRgNaJTd3AjWKKi5avC3HsVdJlrQ8rOvJ8TE3gcW3ijmeN9gxLBO0jClMWG7Z7fNQh4vEL1Mv6FuVnU_9r25HFbk-059Imkze_v2eEE2crtNgOSJxWLJJDQZHlzs53z14OAcuA2FRLLx-NvyLzyH8DsGfCNXuqT_8TfzUiJF0LE9In-dJWMVxoeyWp_bcH7CJ6EGKtxCW_aje1=s318-no?authuser=0" width="200" height="200" class="custom-image"></p>
+		</div>
+		<p>Pickpocket is considered an old classic by many film critics. The style and theme of the film have often been used for influence and inspiration for many
+			filmmakers such as Martin Scorsese, director of big name films such as The Wolf of Wall Street, Goodfellas, and The Departed. 
+		</p>
+		<p>The film brings a unique experience for the watcher as it has a minimalist style, to create the environment of realism. It brings the watcher straight into 
+			Michels complex fight with his moral compass as there are extremely hard ethical questions to be answered within the film.
+		</p>
+	</div>
 </body>
+
+</body>
+</html>
 {% endblock %}

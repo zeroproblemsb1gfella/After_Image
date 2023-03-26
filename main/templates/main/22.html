@@ -5,8 +5,92 @@
 {{block.super}}
 <br>
 <br>
-<h5>The Rules of the Game</h5>
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.text {
+			opacity: 0;
+			transform: translateY(100px);
+			transition: all 1.2s ease-in-out;
+            font-family: serif;
+            border: 5px inset #0051ff;
+            background: linear-gradient(to bottom, #06033a, #0c022e, #020d4b, #05071f);
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+			font-size: 25px;
+			line-height: 1.5;
+			text-align: justify;
+			margin-bottom: 25px;
+		}
+
+		.text.animate {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.title{
+			color: #ff9900;
+		}
+
+        .custom-image {
+			border: 1px solid #ccc;
+			border-radius: 10px;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+		}
+
+		img {
+			float: right;
+			margin-left: 30px
+		}
+
+	</style>
+	<script>
+		window.addEventListener('scroll', function() {
+		var text = document.querySelectorAll('.text');
+			text.forEach(function(el) {
+			var position = el.getBoundingClientRect().top;
+			var windowHeight = window.innerHeight;
+			if (position < windowHeight - 50) {
+				el.classList.add('animate');
+			}
+			});
+		});
+	</script>
+</head>
 <body>
-    CUSTOM STUFF LETS GOOOOOOOO
+		<div class="text">
+			<div class="title">
+			<h2><b>Rules of The Game</b></h2>
+			</div>
+		<div class="img">
+			<p><img src="https://lh3.googleusercontent.com/luxzqLVqCes0e8ofhuA5XE0pWm2BL1BjCPkQH4K0BdR2wVWXMXvluUlKxs-oxcO1DdfR1nuAQX84XxrOFd1Q4HURngMZn2Eg6a4P2buaHwsZh6vYfVURpoIvV2lGFIl150gG_yhQ_CcXjKrXqMxAmfFsf9svRDUkfTQXeJingDsCw0o2hAotkngOzdQ048F5gjFIp9QS1Qw_UiJ7kBqeMAFbJ8MNaw2J7K-f-h9tTmVfuNwlHo6HkqaK4ANy3EanX9csU0PORIBPQUu2-TbsQm-42_DjFwAzY-e0235vUzByFEO-k0LczY8BqqZ8MHJCCbysbhoQa7CwPHOxG2N9iVz31rthFkLt-osGpdDEpauuHsBiiwDTMPtrcaMrAH37K3yk_q6Al0KvrY82M4mKxPkZD6wnxLltKN3FjOKMDER0grpfYCYzPTfoUUO868vpU8dop43-WbbKQQeiJE4HHaKZEqRdZyLRoR8zAgwx2EllB79DxUtOt9XnFVSIzKN9jYC7rVTHe_ifGVfB4lxLSSeWVQxVUKsUD9fPkwCXfBMb05vRMRlSJqhWHnuuI_mnTysH-BpfWv5rRuBBvuA1CczN2Q8jRlt1YV91GweAuq6n1hFOI3G1Er4o74kNSK6DaE9LsYW36tglIGR4eRLZEngZUBXA2pdibT8bnH4LNupz0uD0mSRSGfQSuE7-NrlRT6BSvBowTDleze8fx6A3knD4gYf3R8Qd17zACv_tuIE26SaBLPtmA2f6XCe3VNlVGu4xWlt32J0mhuRLJajHslWWozNNxjPwKN4iesTu3dMv6lx-mt3Cnknd_iiLLPXXI1a_tUC7Qbhdee0WitI2g-32WUoIyIrgOgddp5kCvbw7FQTFO6cAPeeVQ5RlOPQxSDDs9Q8e8WdB1PGPjyhX267bjj07yXLggcDIwOvwImkMkAQU4xK1tIV8B_k8bzYAvaMGRIQb7L1A2t83grXFyFZAJnWOHUifU-1puL7B3VIPhc1LZ_iJZxzO=w1400-h912-no?authuser=0" width="300" height="200" class="custom-image"></p>
+		</div>
+			<p>Directed By: Jean Renoir </p>
+			<p>Starring: Marcel Dalio as Marquis | Nora Gregor as Christine | Paulette Dubost as Lisette</p>
+			<p>Rules of The Game is a French film that highlights the life of the upper class in France before WWII. It plays out in a country estate during a party consisting of only
+                the rich. Inside the party is where any confusing love affairs, and social games take place. It showcases the greed and hipocracy that comes out of the upper-class.
+            </p>
+		</div>
+	</div>
+
+	<div class="text">
+		<div class="title">
+		  <h2><b>Controversy</b></h2>
+		</div>
+		<div class="img">
+			<p><img src="https://lh3.googleusercontent.com/2bfuDCLAHN35VIGmcYehqAxm9zVFmufCm4zTPKObk9EdTXkz0bBeaCf22w3RZTimqL8XyPy7dYmo-HHNAZeFnxwc_XltEVtwYZwTY27WBbM7KIVnV6pxvsj2KNsuTs2LsenFRUFAhhfnkgtrE8aV_Tg_-6LIDLUDnfLyDaHRskbvNScBX3--eo0TZxdkCcoc64p4WLn1W27EriKRSqicj3w_lNup2I0aZFkE2L-BDkhauNhlZUJRJ5NGeAI3e9nwlW8ZR8m3V99t3o9l_cDnOmPJrvGUeu_bRe04DmWACGt3QcY4nl8jPcVhOp-N6odKeCtVl6ZvFqQrpAcceVvtXY4lC-XP3qji0WQ14EBu_KOTyeCaR4gHSOK67mER1oZqr53lX1fDMDcTuy-IpOJmvngsd6c4yK5ewqjX6yR6TImwbZoBuVgripAnHsEyxf8tcLSMnJ6aNt1vgU7vUugFJWQijwoZW9Zn2hGrMlft-IkbsOkcHV1RE48ZU7E1VwaViZYW8D6kXIWyfttBpr5ADf0wXD8YjFyKU-iTW3NZZpxsliXyPnTLRGbtxQZOzpAT8QgcUOuOjTWKH16tT8TWWyeQ35yKZDYwc2iuBF-7EN1UjJxanH0FFuAiGvJAXkMIie2nndwt51KajmZB0kE2SEgfKqcJsmHFTCN5CN5yqL3cxPrvJZRXJiZTcTO3-BdGAMAim86jz8ZFbHMSORKKoaQ7LMB3gnA_d1pkG-mPk2bit47hr7sIEL8pmEgR-DJYs0Vnac_7C7TfwUm408dJlj5tuWRUdjVXq3jp-7pkcFLfpYZeQUq2H_gBZQG5xQjuI-hnJ2SVDY5qlcckw3DvVbbIGBomwg7SNzZ8Bm6-LLm4uXvCOIV-Kzn773xI7QSBiJaeqEUpF_Ev0-9JoJKSGlR_cEhUBm7bgDfSI63Z2d7dxuu0VVTAq3g-dBd0qu3Q-BilaUACnLwaKc_znj5NDy7Lkg310O92EwnCtepHaAG19iR4KEq-3o04=w1393-h969-no?authuser=0" width="200" height="200" class="custom-image"></p>
+		</div>
+		<p>When Rules of The Game came out, it was extremely controversial as it critized the upper class like never seen before. It was banned in France on release, but is still 
+            considered one of the greatest films ever made.
+		</p>
+		<p>The film successfully tells stories of multiple cast members throughout the film overlapping perfectly together. It creates a unique complex, and in depth experience 
+            for the watcher. The film allows for the watchers to see difference and interactions between difference social classes. 
+		</p>
+	</div>
 </body>
+
+</body>
+</html>
 {% endblock %}
