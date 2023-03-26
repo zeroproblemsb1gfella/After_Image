@@ -87,13 +87,44 @@
         }
 
 
-
         body{
 			background-image: url('https://lh3.googleusercontent.com/pw/AMWts8Cro0vxqTWNRBJVQ_6jf8Fqk6K7qe5f731ge83_pVFNE_1BHX6O-XBvKLAPZoKepzUhv7y4JEEq_TPrAN38pueDhIiPd93APMDBeg6fpKxWNNd3tLK8vQVVbpJANZIx6d9NuoWDZ45b8K3uR_0yCAE8=w952-h536-no?authuser=0');
             background-size: cover;
         }
 
+        .bodyText{
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            max-height: 90px;
+        }
 
+        h2{
+            position: relative;
+            font-size: 6em;
+            letter-spacing: 15px;
+            color: #0e3742;
+            text-transform: uppercase;
+            width: 100%;
+            text-align: left;
+            -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
+            line-height: 0.7em;
+            outline: none;
+            animation: animate 5s linear infinite;
+            padding-left: 40px;
+        }
+
+        @keyframes animate{
+      0%,18%,20%,90.1%,92%
+      {
+        color: #00c3ff;
+        text-shadow: none;
+      }
+      18.1%,20.1%,90%,92.1%,100%{
+        COLOR: #FFF;
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #00c3ff, 0 0 70px #00c3ff, 0 0 80px #00c3ff, 0 0 100px #00c3ff, 0 0 150px #00c3ff;
+      }
+    }
 	
         </style>
 	<title style="color: rgb(255, 255, 255);">After Image</title>
@@ -114,8 +145,12 @@
 
 <body>
 	<h1>
+        <div class="bodyText">
         <img src = "https://lh3.googleusercontent.com/pw/AMWts8AaUN6wZ_drhrdWamYNic1ULpl6xlXkad9wzUhCh0i_yYgwP0Tqm7F0V_OUps9CRzUUoHV9yeJWs2h67MKj1uWdYYtY4A3P9gB3udCuoKIwG_1ktalEZRo5YpncomhoGq0cSfXGKaFMbeqyPmETfmyA=w540-h360-no?authuser=0"
-         height="100"> After Image
+         height="100">     
+        
+            <h2>After Image</h2>
+        </div>
     </h1>
 
     <nav>
@@ -135,9 +170,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
-
-<br>
-<br><br><br><br><br><br><br><br><br><br>
-<body>AfterImage</body>
-
 </html>
