@@ -47,6 +47,26 @@
 
 
 <body>
+
+  <div class="movingbody">
+    <div class="wrapper2">
+      <p>Our Current March Movie Rotation:</p>
+      <div class="rotation">
+        <span>Pretend That You Love Me</span>
+        <span>Porco Russo</span>
+        <span>Apollo 10</span>
+        <span>High School</span>
+        <span>Red Deer</span>
+        <span>Top Gun: Maverick</span>
+        <span>Decision to Leave</span>
+        <span>Infinity Pool</span>
+        <span>Pickpocket</span>
+        <span>Rules of The Game</span>
+      </div>
+    </div>
+  </div>
+
+
 <div class="bodyslider">
   <div class="slidecontainer">
     <span class="sliderspan" id="sliderspan1"></span>
@@ -110,8 +130,7 @@
             width: 100%;
             height: 85vh;
             overflow: hidden;
-            border-top: 5px inset #c5c5c5;
-            border-bottom: 5px inset #cfcfcf;
+
         }
 
         .slidecontainer {
@@ -120,7 +139,7 @@
             display: flex;
             align-items: center;
             overflow: hidden;
-            background: linear-gradient(125deg, #1f1f1f, #6d6d6d, #6b6b6b, #313131, #252525);
+            background: transparent;
             
         }
 
@@ -251,6 +270,112 @@
         #sliderspan10:target ~.imageslider{
             left:-90%;
         }
+
+        :before,
+        :after{
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+          font-family: serif;
+        }
+
+        .movingbody{
+          background: transparent;
+          height: 5vh;
+          display: grid;
+          place-items: left;
+        
+        }
+
+        .wrapper2{
+          box-sizing: content-box;
+          background: transparent;
+          height: 60px;
+          justify-content: center;
+          display: flex;
+          font-size: 40px;
+          font-family: sans-serif;
+          font-weight: bold;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .rotation{
+          overflow: hidden;
+          
+        }
+
+        span{
+          display: block;
+          height: 100%;
+          padding-left: 10px;
+          color: #00d0ff;
+          animation: rotate 20s infinite;
+        }
+
+        @keyframes rotate{
+          2%{
+            transform: translateY(-12%)
+          }
+          5%{
+            transform: translateY(0%)
+          }
+          12%{
+            transform: translateY(-112%)
+          }
+          15%{
+            transform: translateY(-100%)
+          }
+          22%{
+            transform: translateY(-212%)
+          }
+          25%{
+            transform: translateY(-200%)
+          }
+          32%{
+            transform: translateY(-312%)
+          }
+          35%{
+            transform: translateY(-300%)
+          }
+          42%{
+            transform: translateY(-412%)
+          }
+          45%{
+            transform: translateY(-400%)
+          }
+          52%{
+            transform: translateY(-512%)
+          }
+          55%{
+            transform: translateY(-500%)
+          }
+          62%{
+            transform: translateY(-612%)
+          }
+          65%{
+            transform: translateY(-600%)
+          }
+          72%{
+            transform: translateY(-712%)
+          }
+          75%{
+            transform: translateY(-700%)
+          }
+          82%{
+            transform: translateY(-812%)
+          }
+          85%{
+            transform: translateY(-800%)
+          }
+          92%{
+            transform: translateY(-912%)
+          }
+          95%{
+            transform: translateY(-900%)
+          } 
+
+        }
+        
   </style>
 
 </body>
