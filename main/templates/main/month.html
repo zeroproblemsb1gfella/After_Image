@@ -1,24 +1,70 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-<h3>{{ ls.name }}</h3>
+<div id="center">
+    <h4>{{ ls.name }}</h4>
+</div>
 
-<div class="movie-grid">
-    {% for movie in ls.movie_set.all %}
-        <a href="{% url 'movie' ls.name movie.title %}">
-            <img src="{{ movie.image.url }}" alt="{{ movie.title }}" style="height: 400px; width: 250px;">
-            <br>
-            {{ movie.title }} | {{ movie.watched }} Watches
-        </a>
-    {% endfor %}
+<div class="container" id="movie-container">
+    <div class="row movie-grid">
+        {% for movie in ls.movie_set.all %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 movie-card">
+            <div class="card">
+                <a href="{% url 'movie' ls.name movie.title %}">
+                    <p>{{ movie.watched }} Watches</p>
+                    <img src="{{ movie.image.url }}" alt="{{ movie.title }}" class="card-img-top"
+                        style="height: 400px; width: 250px; margin-bottom: 10px; margin-top: 10px;">
+                    <p>{{ movie.title }}</p>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 
 <style>
-    .movie-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        grid-gap: 20px;
-        justify-items: center;
+    .movie-card {
+        border-radius: 20px;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        margin-bottom: 25px;
+    }
+
+    .movie-card:hover {
+        transform: scale(1.03);
+    }
+
+    .card {
+        border: none;
+        background: transparent;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+        transform: scale(1.03);
+    }
+
+    #center {
+        text-align: center;
+        padding-bottom: 25px;
+        padding-top: 25px;
+    }
+
+    h4 {
+        font-family: 'Sora', sans-serif;
+        font-size: 5em;
+        font-weight: 1000;
+        text-shadow: 1px 3px black;
+    }
+
+    p {
+        font-family: sans-serif;
+        font-size: 20px;
+        text-align: center;
+        color: white;
     }
 </style>
+
 {% endblock %}
