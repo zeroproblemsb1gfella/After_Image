@@ -1,12 +1,100 @@
 
 {%extends 'main/movie.html'%}
-
 {%block content%}
 {{block.super}}
-<br>
-<br>
-<h5>Late Spring</h5>
-<body>
-    CUSTOM STUFF LETS GOOOOOOOO
-</body>
+
+<div style="text-align:center;">
+    <h3>Trailer</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/_4Ul10BSzRw" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div class="image-container">
+    <img id="latespring" src="https://lh4.googleusercontent.com/bP4Khl5r7L8r6IY2hgvWAwbO0ooPcMn3yBSlHtwx1y5dCWfW8gKJIJHoe2qQY8apHg8=w2400" width="50%" height = auto>
+
+
+    <div class="text-container">
+      <h2>ROLE MODEL</h2>
+      <p>
+        Noriko is a great role model for many in their 20's as she took great care of her father. After all, your father is the one who 
+        helped your grow up your whole life.However it is also important that you balance your own ambitions and taking care of your 
+        parents well. If not, you could jeopardize your life by not accomplishing anything to support yourself.
+      </p>
+    </div>
+  </div>
+  <style>
+    .image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5em;
+    border: 10px double #000000;
+    padding: 1em;
+    position:relative;
+    background-color: #cccccc;
+  }
+  
+  #latespring {
+    max-width: 50%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 2em;
+    border: 1px solid #cccccc;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    padding: 0.5em;
+    background-image: linear-gradient(to right, transparent 10%, #cccccc 20%);
+    background-size: 2px 100%;
+  }
+
+  #latespring:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+  border: none;
+  }
+
+  .text-container {
+    flex-basis: 45%;
+    margin-left: 2em;
+  }
+  
+  .text-container h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: #333333 ;
+  }
+  
+  p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+</style>
+
+<h3 style="text-align: center;">Gallery</h3>
+
+<div class="image-container2">
+    <img id="latespring1" src="https://lh3.googleusercontent.com/bPWmzNYvFn4GfPJAxqTxNTK3Z8iGWbmexu5dqOqo4-lOnSbkANdZbZ0EtAkkX-oTUT0=w2400" width="49.3%" height = auto>
+    <img id="latespring2" src="https://lh4.googleusercontent.com/afyomN4DkQvGjf2OgLca1S_dn844uJd2Htva8VaS7KhOLGkgBiojMIS684KUgLi-xDY=w2400" width="49.3%" height = auto>
+    <img id="latespring3" src="https://lh5.googleusercontent.com/WmGVhbglhVd7TA0eMEwW3RItF9cTilVzz84xd_Gs0-NqAwxisAMT1qGViYfhRCrw3NA=w2400" width="49.3%" height = auto>
+    <img id="latespring4" src="https://lh3.googleusercontent.com/0pSvAbltpRtFH9ZaIhuvk7UgxtmIrJejl4fFzxa3dvuOW8jMhodafq4f3GW4ku2nQk0=w2400" width="49.3%" height = auto>
+  </div>
+
+  <style>
+    .image-container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5em;
+    border: 10px double #000000;
+    padding: 1em;
+    position:relative;
+    background-color: #cccccc;
+    gap: 20px;
+  }
+
+  </style>
+
 {% endblock %}
