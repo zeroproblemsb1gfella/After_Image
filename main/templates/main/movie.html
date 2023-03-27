@@ -101,11 +101,18 @@
         <p style="color: black;" class="lead">Length: {{ movie.length }} minutes</p>
         <p style="color: black;" class="lead">Synopsis: {{ movie.synopsis }}</p>
         <br>
-        <form method="post" action="#">
+        <form method="post" action="#" onsubmit="displayMsg()">
             {% csrf_token %}
             <p class="lead" style="color: black;">{{ form.post }}</p>
             <button type="submit" name="save" class="btn btn-primary">Submit Post</button>
         </form>
+
+        <script>
+            function displayMsg() {
+                alert("Post Has Been Successfully Submitted");
+            }
+        </script>
+
 
         <br>
 
