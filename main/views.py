@@ -35,7 +35,7 @@ def popular(response):
         for discussion in movie.discussionpost_set.all():
             discussion_post_list.append(discussion)
     
-    discussion_post_list = sorted(discussion_post_list, key = lambda x: x.liked)
+    discussion_post_list = sorted(discussion_post_list, key = lambda x: x.post_likes)
     return render(response, "main/popular.html", {"ls":ls, "movie":movie_list, "discussion":discussion_post_list})
 
 

@@ -84,7 +84,7 @@
                     <button onclick="goBack()" class="btn btn-primary">Return to Movies</button>
                     <script>
                         function goBack() {
-                            window.history.back();
+                            window.location.href = "{% url 'month' ls.name %}";
                         }
                     </script>
                 </div>

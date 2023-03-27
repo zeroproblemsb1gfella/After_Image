@@ -1,12 +1,189 @@
 
 {%extends 'main/movie.html'%}
 
+
+
 {%block content%}
 {{block.super}}
-<br>
-<br>
-<h5>Pretend That You Love Me</h5>
-<body>
-    CUSTOM STUFF LETS GOOOOOOOO
-</body>
+{% load static %}
+<div class = "text-container">
+<div class = "my-title">Pretend That You Love Me</div>
+<div class = "my-description">Joel Haver blends reality and fiction in his 2020 no budget film. It is a deeply personal film that explores his romantic relationships as he wrestles with his own health and the death of his father. Joel Haver is a filmmaker popular on YouTube who is responsible for a number of no budget films and garnered over 1 and a half million subscribers for his sketch comedy. He is a proponent of no budget filmmaking and holds a yearly "Movies That Were Made During The Oscars" event in which his followers make full feature length films in the 3 hour duration of the Oscars. Anti-establishment, inspiring and creative, Joel Haver is a maverick in the filmmaking world.</div>
+</div>
+<!--* slider cntr -->
+<div class="slider">
+  <!-- image -->
+  <img
+    class="slide-image"
+    src="{% static 'aftersun-still1.jpeg'%}"
+    alt="slide"
+  />
+     <!-- text overlay -->
+     <div class = "slide-description">Description1</div>
+  <!-- the count and number of the images -->
+  <div class = "numbers">
+    <span class="slide-image-number">1</span> of
+    <span class="total-image-number">4</span>
+  </div>
+  <!-- previous btn -->
+  <div class="btn backward">
+    <span class="material-icons-outlined"> previous</span>
+  </div>
+  <!-- next btn -->
+  <div class="btn forward">
+    <span class="material-icons-outlined"> next </span>
+  </div>
+</div>
+
+<script>
+// the variables of the image slider
+const image = document.querySelector(".slide-image");
+const imageNumber = document.querySelector(".slide-image-number");
+const totalImageNumber = document.querySelector(".total-image-number");
+const prevBtn = document.querySelector(".backward");
+const nextBtn = document.querySelector(".forward");
+const slideDescription = document.querySelector(".slide-description");
+
+// the image array
+const images = [
+"{% static 'aftersun-still1.jpeg'%}",
+"{% static 'aftersun-still1.jpeg'%}",
+"{% static 'aftersun-still1.jpeg'%}",
+"{% static 'aftersun-still1.jpeg'%}",
+];
+
+const descriptions = [
+  "Description 1",
+  "Description 2",
+  "Description 3",
+  "Description 4"
+]
+// the index of the image on page load
+let currentImage = 0;
+
+// the image details that shows when the webpage loads
+window.addEventListener("DOMContentLoaded", showImage);
+
+// function to select and change the image details
+function showImage() {
+  image.src = images[currentImage];
+  imageNumber.textContent = currentImage + 1;
+  totalImageNumber.textContent = images.length;
+  slideDescription.textContent = descriptions[currentImage];
+}
+
+// the next button function
+nextBtn.addEventListener("click", function () {
+  currentImage++;
+  if (currentImage > images.length - 1) {
+    currentImage = 0;
+  }
+  showImage(currentImage);
+});
+
+// the prev button function
+prevBtn.addEventListener("click", function () {
+  currentImage--;
+  if (currentImage < 0) {
+    currentImage = images.length - 1;
+  }
+  showImage(currentImage);
+});
+
+
+
+
+</script>
+<style>
+  /* heading */
+  .my-title {
+    font-size: 400%;
+    text-align: center;
+  }
+  .my-description{
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  /* slider container */
+  .slider {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    position: relative;
+    margin: 40px auto;
+    max-width: 1000px;
+
+  }
+  .text-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5em;
+    border: 10px double #009bce;
+    padding: 1em;
+    position: relative;
+    background-color: #cccccc;
+  }
+
+  /* image */
+  .slide-image {
+    width: auto;
+    min-height: 200px;
+    height: auto;
+    max-height: 100%;
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+  
+   /* text overlay */
+    .slide-description{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 200%;
+    }
+  
+  /* paragraph holding the count and number of the images */
+  .numbers {
+    text-align: center;
+  }
+  /* prev and next btns */
+  .btn.backward {
+    position: absolute;
+    top: 50%;
+    font-size: 80%;
+    background-color: rgb(228, 231, 231);
+    border: solid 1px rgb(201, 199, 199);
+    padding: 5px;
+    cursor: pointer;
+    left: 0px;
+  }
+
+  .btn.forward {
+    position: absolute;
+    top: 50%;
+    font-size: 80%;
+    background-color: rgb(228, 231, 231);
+    border: solid 1px rgb(201, 199, 199);
+    padding: 5px;
+    cursor: pointer;
+    right: 0px;
+  }
+
+  
+  </style>
+
 {% endblock %}
+
