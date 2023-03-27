@@ -7,8 +7,8 @@
 {{block.super}}
 {% load static %}
 <div class = "text-container">
-<div class = "my-title">Pretend That You Love Me</div>
-<div class = "my-description">Joel Haver blends reality and fiction in his 2020 no budget film. It is a deeply personal film that explores his romantic relationships as he wrestles with his own health and the death of his father. Joel Haver is a filmmaker popular on YouTube who is responsible for a number of no budget films and garnered over 1 and a half million subscribers for his sketch comedy. He is a proponent of no budget filmmaking and holds a yearly "Movies That Were Made During The Oscars" event in which his followers make full feature length films in the 3 hour duration of the Oscars. Anti-establishment, inspiring and creative, Joel Haver is a maverick in the filmmaking world.</div>
+<div class = "my-title">pretend that you love me.</div>
+<div class = "my-description">Joel Haver blends reality and fiction in his 2020 no budget film. It is a deeply personal film that explores his romantic relationships as he wrestles with his own health and the health of his father. Joel Haver is a filmmaker popular on YouTube who is responsible for a number of no budget films and garnered over 1 and a half million subscribers for his sketch comedy. He is a proponent of no budget filmmaking and holds a yearly "Movies That Were Made During The Oscars" event in which his followers make full feature length films in the 3 hour duration of the Oscars. Anti-establishment, inspiring and creative, Joel Haver is a maverick in the filmmaking world.</div>
 </div>
 <!--* slider cntr -->
 <div class="slider">
@@ -46,17 +46,17 @@ const slideDescription = document.querySelector(".slide-description");
 
 // the image array
 const images = [
-"{% static 'aftersun-still1.jpeg'%}",
-"{% static 'aftersun-still1.jpeg'%}",
-"{% static 'aftersun-still1.jpeg'%}",
-"{% static 'aftersun-still1.jpeg'%}",
+"{% static 'pretend1.png'%}",
+"{% static 'pretend2.png'%}",
+"{% static 'pretend3.png'%}",
+"{% static 'pretend4.png'%}",
 ];
 
 const descriptions = [
-  "Description 1",
-  "Description 2",
-  "Description 3",
-  "Description 4"
+  "Landscape",
+  "Experimental Use of Aspect Ratio and Colour Grading",
+  "Romance",
+  "Real Life"
 ]
 // the index of the image on page load
 let currentImage = 0;
@@ -97,12 +97,14 @@ prevBtn.addEventListener("click", function () {
 <style>
   /* heading */
   .my-title {
-    font-size: 400%;
+    font-size: 300%;
     text-align: center;
+    font-family: 'Courier New', Courier, monospace
   }
   .my-description{
-    margin-left: 40px;
+    font-size: 110%;
     margin-right: 40px;
+    font-family: 'Courier New', Courier, monospace
   }
   /* slider container */
   .slider {
@@ -119,10 +121,10 @@ prevBtn.addEventListener("click", function () {
     justify-content: space-between;
     align-items: center;
     margin: 5em;
-    border: 10px double #009bce;
+    border: 10px double #000000;
     padding: 1em;
     position: relative;
-    background-color: #cccccc;
+    background-color: #12507f;
   }
 
   /* image */
@@ -153,6 +155,7 @@ prevBtn.addEventListener("click", function () {
       align-items: center;
       text-align: center;
       font-size: 200%;
+      font-family: 'Courier New', Courier, monospace
     }
   
   /* paragraph holding the count and number of the images */

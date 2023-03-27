@@ -31,7 +31,7 @@
             {%if watched.watched == True%}
                 {{watched.movie.title}}
                 <a href="{% url 'movie' watched.month watched.movie.title %}">
-                    <img src="{{ watched.movie.image_link }}" alt="{{ watched.movie.title }}" style="height: 300px; width: auto;">
+                    <img src="{{ watched.movie.image.url }}" alt="{{ watched.movie.title }}" style="height: 300px; width: auto;">
                     <br>
                     {{ watched.movie.title }} | {{ watched.movie.watched }} Watches
                 </a>
