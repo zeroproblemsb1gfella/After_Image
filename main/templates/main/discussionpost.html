@@ -9,56 +9,72 @@
   </script>
 </head>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <h3>{{ movie.title }}&nbsp;|&nbsp;{{ movie.watched }} Watches</h3>
-      <p>{{ movie.synopsis }}</p>
-      <hr>
-      <div class="discussion-post" style="background-color: rgba(0, 0, 0, 0.39); padding: 20px; border-radius: 10px; margin-right: 80px">
-        <div class="row">
-          <div class="col-md-8">
-            <h6>{{ discussionpost.user }}</h6>
-            <h5>{{ discussionpost.post }}&nbsp;</h5>
-            <h7>&nbsp;{{ discussionpost.post_likes }} Likes</h7>
-            <br>
-            <br>
-            <div class="comments">
-              {% for comment in discussionpost.comment_set.all %}
-                <div class="comment">
-                  <p><strong>{{ comment.user }}</strong></p>
-                  <p>{{ comment.comment }}</p>
-                </div>
-              {% endfor %}
+<div class="main">
+  <h3  style="color: black;">{{ movie.title }}&nbsp;|&nbsp;{{ movie.watched }} Watches</h3>
+  <p  style="color: black;">{{ movie.synopsis }}</p>
+  <hr color="#39c6fe">
+  <div class="discussion-post">
+    <div class="row">
+      <div class="col-md-8">
+        <h6 style="color: black;">{{ discussionpost.user }}</h6>
+        <h5 style="color: black;">{{ discussionpost.post }}&nbsp;</h5>
+        <h7 style="color: #39c6fe;;">{{ discussionpost.post_likes }} Likes</h7>
+        <br>
+        <br>
+        <div class="comments">
+          {% for comment in discussionpost.comment_set.all %}
+            <div class="comment">
+              <p style="color: black;"><strong>{{ comment.user }}</strong></p>
+              <p style="color: black;">{{ comment.comment }}</p>
             </div>
-          </div>
-          <div class="col-md-4">
-            <form method="POST" action="{% url 'toggle_likes' name title id %}">
-              {% csrf_token %}
-              {% if liked.liked %}
-                <button type="submit" class="btn btn-success float-end mt-3">Unlike</button>
-              {% else %}
-                <button type="submit" class="btn btn-success float-end mt-3">Like</button>
-              {% endif %}
-            </form>
-          </div>
+            <br>
+          {% endfor %}
         </div>
-        <br>
-        <br>
-        <form method="post" action="#">
+      </div>
+      <div class="col-md-4">
+        <form method="POST" action="{% url 'toggle_likes' name title id %}"style="position: absolute; right: 0; padding-right: 30px">
           {% csrf_token %}
-          {{ form }}
-          <button type="submit" name="save" class="btn btn-primary">Create New</button>
+          {% if liked.liked %}
+            <button type="submit" class="btn btn-success float-end mt-3">Unlike</button>
+          {% else %}
+            <button type="submit" class="btn btn-success float-end mt-3">Like</button>
+          {% endif %}
         </form>
       </div>
     </div>
+    <br>
+    <br>
+    <form method="post" action="#" style="color: black;";>
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit" name="save" class="btn btn-primary">Create New</button>
+    </form>
   </div>
 </div>
 
 <style>
-  .container{
+  .main{
+    border:25px solid#0000;
+    background-color: aliceblue;
     margin-left: 20px;
+    margin-right: 20px;
     margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .discussion-post{
+    border:1px solid#000000;
+    background-color: white;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+  }
+  .comment{
+    border:1px solid#000000;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
   }
 </style>
 
