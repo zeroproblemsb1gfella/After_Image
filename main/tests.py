@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from main.forms import CreateNewComment
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from .models import MovieList, Movie, Movie_Watched, DiscussionPost
+from .models import MovieList, Movie, Movie_Watched, DiscussionPost, Discussion_Likes
 
 from main.forms import CreateNewBio
 from main.models import MovieList, Movie
@@ -225,3 +225,19 @@ class GoBackTests(TestCase):
     def testGoBackForInvalidURL(self):
         response = self.client.get('/invalid_url/')
         self.assertEqual(response.status_code, 404)
+        
+class toggleLike(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = MyUser.objects.create_user(username='testUsername', email='testUserEmail@gmail.com', password='testPassword')
+        self.movie_list = MovieList.objects.create(name='testMovieList')
+        self.movie = Movie.objects.create(title='testMovie', movie_list=self.movie_list)
+        self.discussion_post = DiscussionPost.objects.create(post='testPost', movie=self.movie, user=self.user)
+        self.url = reverse('toggle_likes', args=[self.movie_list.name, self.movie.title, self.discussion_post.id])
+    
+    def testingToggleLikeBTN(self):
+        self.client.force_login(self.user)
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 302)
+        liked = Discussion_Likes.objects.get(user=self.user, discussion_post=self.discussion_post)
+        self.assertEqual(liked.liked, 0) 
