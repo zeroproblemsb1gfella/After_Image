@@ -6,6 +6,11 @@ from .forms import *
 from .urls import *
 from django.urls import reverse
 from django.contrib.auth.models import User
+from main.forms import CreateNewComment
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from .models import MovieList, Movie, Movie_Watched, DiscussionPost
+
 from main.forms import CreateNewBio
 from main.models import MovieList, Movie
 
@@ -64,6 +69,7 @@ class CreateNewDiscussionPostFormTestCase(TestCase):
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['post'], ['This field is required.'])
 
+
 class CreateNewCommentTestCases(TestCase):
     def testValid(self):
         data = {'comment': 'Test Comment'}
@@ -81,6 +87,47 @@ class CreateNewCommentTestCases(TestCase):
         form = CreateNewComment(data=data)
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['comment'], ['Ensure this value has at most 10000 characters (it has 10001).'])
+
+class HomeViewTestCase(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+        self.MyUser = MyUser.objects.create_user(username='username', email='user@gmail.com', password='password')
+        self.url = reverse('home')
+
+    def home(request):
+        movie_lists = MovieList.objects.all()
+        context = {'movie_lists': movie_lists,}
+        return render(request, 'main/home.html', context)
+
+
+class ToggleWatchedTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = MyUser.objects.create_user(username='testuser', email='testuser@gmail.com', password='testpass')
+        self.client.login(username='testuser', password='testpass')
+        self.movie_list = MovieList.objects.create(name='Test List')
+        self.movie = Movie.objects.create(title='Test Movie', movie_list=self.movie_list)
+        
+    def testToggleWatched(self):
+        self.movie.refresh_from_db()
+        self.assertEqual(self.movie.watched, 0)
+        
+
+class TestMovieView(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = MyUser.objects.create_user(username='testuser', email='testuser@gmail.com', password='testpass')
+        self.movielist = MovieList.objects.create(name="TestList")
+        self.movie = Movie.objects.create(title="TestMovie", movie_list=self.movielist)
+        self.discussionpost = DiscussionPost.objects.create(post="Test Post", movie=self.movie, user=self.user)
+        self.url = reverse("movie", args=[self.movielist.name, self.movie.title])
+
+    def testMovieView(self):
+        self.client.login(username='testuser', email='testuser@gmail.com', password='testpass')
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 302)
+
 
 class CreateNewBioTestCases(TestCase):
     def testValid(self):
