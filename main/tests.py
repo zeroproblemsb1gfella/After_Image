@@ -239,5 +239,5 @@ class toggleLike(TestCase):
         self.client.force_login(self.user)
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 302)
-        liked = Discussion_Likes.objects.get(user=self.user, discussion_post=self.discussion_post)
-        self.assertEqual(liked.liked, 0) 
+        postLiked = Discussion_Likes.objects.get(user=self.user, discussion_post=self.discussion_post)
+        self.assertEqual(postLiked.liked, 0)
