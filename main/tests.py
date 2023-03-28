@@ -287,7 +287,7 @@ class MonthViewTestCase(TestCase):
         self.MyUser = MyUser.objects.create_user(username='username', email='user@gmail.com', password='password')
         self.movie_list = MovieList.objects.create(name="March Movies", archived=False)
 
-    def test_month_view(self):
+    def testMonthView(self):
         self.client.login(email='user@gmail.com', password='password')
         url = reverse("month", args=[self.movie_list.name])
         response = self.client.get(url)
@@ -305,7 +305,7 @@ class PopularViewTest(TestCase):
         self.discussion1 = DiscussionPost.objects.create(movie=self.movie1, user=self.MyUser, post='Awesome movie etc', post_likes=9)
         self.discussion2 = DiscussionPost.objects.create(movie=self.movie2, user=self.MyUser, post='Another Awesome movie etc', post_likes=6)
     
-    def test_popular_view(self):
+    def testPopularView(self):
         self.client.login(email='user@gmail.com', password='password')
         url = reverse('popular')
         response = self.client.get(url)
