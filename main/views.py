@@ -20,6 +20,7 @@ def profile(response):
         form = CreateNewBio(response.POST)
         if form.is_valid():
             user.profile = form.cleaned_data["bio"]
+            user.save()
     else:
         form = CreateNewBio()
     return render(response, "main/profile.html",{"user":user, "form":form})
