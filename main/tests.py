@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 from django.test import TestCase, Client
 from django.db import IntegrityError
 from .models import *
@@ -63,3 +64,25 @@ class CreateNewDiscussionPostFormTestCase(TestCase):
         form = CreateNewDiscussionPost(data=form_data)
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['post'], ['This field is required.'])
+=======
+from django.test import TestCase
+from main.forms import CreateNewComment
+
+class CreateNewCommentTestCases(TestCase):
+    def test_valid_form(self):
+        data = {'comment': 'Test Comment'}
+        form = CreateNewComment(data=data)
+        self.assertTrue(form.is_valid())
+
+    def test_empty_comment(self):
+        data = {'comment': ''}
+        form = CreateNewComment(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['comment'], ['This field is required.'])
+
+    def test_long_comment(self):
+        data = {'comment': 'a' * 10001}
+        form = CreateNewComment(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['comment'], ['Ensure this value has at most 10000 characters (it has 10001).'])
+>>>>>>> Stashed changes
