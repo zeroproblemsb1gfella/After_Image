@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 from django.test import TestCase, Client
 from django.db import IntegrityError
 from .models import *
@@ -7,6 +6,8 @@ from .forms import *
 from .urls import *
 from django.urls import reverse
 from django.contrib.auth.models import User
+from main.forms import CreateNewBio
+from main.models import MovieList, Movie
 
 class MovieListTestCase(TestCase):
 
@@ -52,8 +53,6 @@ class AboutViewTestCase(TestCase):
     
 class CreateNewDiscussionPostFormTestCase(TestCase):
 
-    #Forms don't require setup
-
     def testValidDiscussionForm(self):
         form_data = {'post': 'Awesome Movie! etc etc'}
         form = CreateNewDiscussionPost(data=form_data)
@@ -64,25 +63,70 @@ class CreateNewDiscussionPostFormTestCase(TestCase):
         form = CreateNewDiscussionPost(data=form_data)
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['post'], ['This field is required.'])
-=======
-from django.test import TestCase
-from main.forms import CreateNewComment
 
 class CreateNewCommentTestCases(TestCase):
-    def test_valid_form(self):
+    def testValid(self):
         data = {'comment': 'Test Comment'}
         form = CreateNewComment(data=data)
         self.assertTrue(form.is_valid())
 
-    def test_empty_comment(self):
+    def testEmptyComment(self):
         data = {'comment': ''}
         form = CreateNewComment(data=data)
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['comment'], ['This field is required.'])
 
-    def test_long_comment(self):
+    def testExceededComment(self):
         data = {'comment': 'a' * 10001}
         form = CreateNewComment(data=data)
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['comment'], ['Ensure this value has at most 10000 characters (it has 10001).'])
->>>>>>> Stashed changes
+
+class CreateNewBioTestCases(TestCase):
+    def testValid(self):
+        data = {'bio': 'Test Bio'}
+        form = CreateNewBio(data=data)
+        self.assertTrue(form.is_valid())
+
+    def testEmpty(self):
+        data = {'bio': ''}
+        form = CreateNewBio(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['bio'], ['This field is required.'])
+
+    def testExceededBio(self):
+        data = {'bio': 'a' * 1001}
+        form = CreateNewBio(data=data)
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['bio'], ['Ensure this value has at most 1000 characters (it has 1001).'])
+
+class MovieTestCases(TestCase):
+    def setUp(self):
+        testList = MovieList.objects.create(name='Test List')
+        Movie.objects.create(movie_list=testList, title='Test Movie', synopsis='Test Synopsis')
+
+    def testMovieTitle(self):
+        movie = Movie.objects.get(id=1)
+        textField = movie._meta.get_field('title').verbose_name
+        self.assertEqual(textField, 'title')
+
+    def testMovieTitleLength(self):
+        movie = Movie.objects.get(id=1)
+        max_length = movie._meta.get_field('title').max_length
+        self.assertEqual(max_length, 300)
+
+    def testSynopsisName(self):
+        movie = Movie.objects.get(id=1)
+        textField = movie._meta.get_field('synopsis').verbose_name
+        self.assertEqual(textField, 'synopsis')
+
+    def testSynopsisLength(self):
+        movie = Movie.objects.get(id=1)
+        max_length = movie._meta.get_field('synopsis').max_length
+        self.assertEqual(max_length, 5000)
+
+    def testCorrectMovieTitle(self):
+        movie = Movie.objects.get(id=1)
+        expectedMovieTitle = f"{movie.title}"
+        self.assertEqual(str(movie), expectedMovieTitle)
+
