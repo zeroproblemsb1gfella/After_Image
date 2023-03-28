@@ -139,5 +139,5 @@ def toggle_likes(response, name, title, id):
     return redirect('/movie/' + name +  '/' + title + '/discussionposts/' + id_string)
 
 def go_back(request):
-    return render(request, 'main/go_back.html')
+    return render(request, 'main/movie.html')
 

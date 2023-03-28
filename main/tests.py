@@ -130,3 +130,51 @@ class MovieTestCases(TestCase):
         expectedMovieTitle = f"{movie.title}"
         self.assertEqual(str(movie), expectedMovieTitle)
 
+
+class DiscussionPostTests(TestCase): 
+    def setUp(self):
+        testList = MovieList.objects.create(name = "Test List")
+        self.movie = Movie.objects.create(movie_list = testList, title = "Test Movie 1", synopsis = "This is a synopsis of Test Movie 1")
+        self.user = MyUser.objects.create(email = "testemail@test.com", password = "test123", username = "evan")
+        self.discussionPost = DiscussionPost.objects.create(movie = self.movie, user = self.user, post = "This is a discussion post created for testing.")
+
+    def testDiscussionPostContents(self):
+        expected = "This is a discussion post created for testing."
+        self.assertEqual(str(self.discussionPost), expected)
+
+    def testDiscussionPostMovieForeignKey(self):
+        self.assertEqual(self.discussionPost.movie, self.movie)
+
+    def testDiscussionPostUserForeignKey(self):
+        self.assertEqual(self.discussionPost.user, self.user)
+
+class CommentsTests(TestCase):
+    def setUp(self):
+        testList = MovieList.objects.create(name = "Test List")
+        self.movie = Movie.objects.create(movie_list = testList, title = "Test Movie 1", synopsis = "This is a synopsis of Test Movie 1")
+        self.user = MyUser.objects.create(email = "testemail@test.com", password = "test123", username = "evan")
+        self.discussionPost = DiscussionPost.objects.create(movie = self.movie, user = self.user, post = "This is a discussion post created for testing.")
+        self.comment = Comment.objects.create(discussion_post = self.discussionPost, user = self.user, comment = "This is a test comment.")
+
+    def testValidComment(self):
+        self.assertEqual(str(self.comment), "This is a test comment.")
+    
+    def testDiscussionPostComment(self):
+        self.assertEqual(self.comment.discussion_post, self.discussionPost)
+
+    def testCommentbyUser(self):
+        self.assertEqual(self.comment.user, self.user)
+
+class GoBackTests(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.url = reverse('go_back')
+
+    def testGoBackView(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'main/movie.html')
+    
+    def testGoBackForInvalidURL(self):
+        response = self.client.get('/invalid_url/')
+        self.assertEqual(response.status_code, 404)
