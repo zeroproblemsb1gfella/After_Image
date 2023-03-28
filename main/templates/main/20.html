@@ -53,11 +53,11 @@
 	</style>
 	<script>
 		window.addEventListener('scroll', function() {
-			var text = document.querySelectorAll('.text');
+		var text = document.querySelectorAll('.text');
 			text.forEach(function(el) {
-			var position = el.getBoundingClientRect().top;
-			var windowHeight = window.innerHeight;
-			if (position < windowHeight - 50) {
+			var pos = el.getBoundingClientRect().top;
+			var height = window.innerHeight;
+			if (pos < height - 50) {
 				el.classList.add('animate');
 			}
 			});
