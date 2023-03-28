@@ -240,4 +240,33 @@ class toggleLike(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 302)
         postLiked = Discussion_Likes.objects.get(user=self.user, discussion_post=self.discussion_post)
-        self.assertEqual(postLiked.liked, 0)
+        self.assertEqual(postLiked.liked, 0) 
+
+class testDiscussionPost(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = MyUser.objects.create_user(username='testUsername', email='testUserEmail@gmail.com', password='testPassword')
+        self.movie_list = MovieList.objects.create(name='testMovieList')
+        self.movie = Movie.objects.create(title='testMovie', movie_list=self.movie_list)
+        self.discussion_post = DiscussionPost.objects.create(post='testPost', movie=self.movie, user=self.user)
+        self.comment = Comment.objects.create(comment='testPost', discussion_post=self.discussion_post, user=self.user)
+        self.url = reverse('discussionpost', args=[self.movie_list.name, self.movie.title, self.discussion_post.id])
+
+    def testDiscussionPostComment(self):
+        self.client.login(username='testUsername', password='testPassword')
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 302)
+
+class testDiscussionPosts(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = MyUser.objects.create_user(username='testUsername', email='testUserEmail@gmail.com', password='testPassword')
+        self.movie_list = MovieList.objects.create(name='testMovieList')
+        self.movie = Movie.objects.create(title='testMovie', movie_list=self.movie_list)
+        self.discussion_post = DiscussionPost.objects.create(post='testPost', movie=self.movie, user=self.user)
+        self.url = reverse('discussionposts', args=[self.movie_list.name, self.movie.title])
+
+    def testDiscussionPosts(self):
+        self.client.login(username='testUsername', password='testPassword')
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 302)
