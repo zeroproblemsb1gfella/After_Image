@@ -95,7 +95,7 @@ class HomeViewTestCase(TestCase):
         self.MyUser = MyUser.objects.create_user(username='username', email='user@gmail.com', password='password')
         self.url = reverse('home')
 
-    def home(request):
+    def testHome(request):
         movie_lists = MovieList.objects.all()
         context = {'movie_lists': movie_lists,}
         return render(request, 'main/home.html', context)
