@@ -4,7 +4,7 @@
 {{block.super}}
 
 <div style="text-align:center;">
-    <h3>Trailer</h3>
+    <br></br><h3>Trailer</h3>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/_4Ul10BSzRw" frameborder="0" allowfullscreen></iframe>
 </div>
 
@@ -21,56 +21,6 @@
       </p>
     </div>
   </div>
-  <style>
-    .image-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5em;
-    border: 10px double #000000;
-    padding: 1em;
-    position:relative;
-    background-color: #cccccc;
-  }
-  
-  #latespring {
-    max-width: 50%;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 2em;
-    border: 1px solid #cccccc;
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
-    padding: 0.5em;
-    background-image: linear-gradient(to right, transparent 10%, #cccccc 20%);
-    background-size: 2px 100%;
-  }
-
-  #latespring:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
-  border: none;
-  }
-
-  .text-container {
-    flex-basis: 45%;
-    margin-left: 2em;
-  }
-  
-  .text-container h2 {
-    font-size: 2em;
-    font-weight: bold;
-    margin-bottom: 1em;
-    color: #333333 ;
-  }
-  
-  p {
-    font-size: 1.2em;
-    line-height: 1.5;
-    color: #000000;
-  }
-
-</style>
 
 <h3 style="text-align: center;">Gallery</h3>
 
@@ -82,19 +32,66 @@
   </div>
 
   <style>
-    .image-container2 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5em;
-    border: 10px double #000000;
-    padding: 1em;
-    position:relative;
-    background-color: #cccccc;
-    gap: 20px;
-  }
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 5em;
+      border: 10px double #000000;
+      padding: 1em;
+      position:relative;
+      background-color: #cccccc;
+    }
 
+    .image-container2 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 5em;
+      border: 10px double #000000;
+      padding: 1em;
+      position:relative;
+      background-color: #cccccc;
+      gap: 20px;
+    }
+    
+    #latespring {
+      max-width: 50%;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      margin-left: 2em;
+      border: 1px solid #cccccc;
+      box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+      padding: 0.5em;
+      background-image: linear-gradient(to right, transparent 10%, #cccccc 20%);
+      background-size: 2px 100%;
+    }
+  
+    #latespring:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+    border: none;
+    }
+  
+    .text-container {
+      flex-basis: 45%;
+      margin-left: 2em;
+    }
+    
+    .text-container h2 {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 1em;
+      color: #333333 ;
+    }
+    
+    p {
+      font-size: 1.2em;
+      line-height: 1.5;
+      color: #000000;
+    }
   </style>
 
 {% endblock %}
