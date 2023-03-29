@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from main.forms import CreateNewComment
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from .models import MovieList, Movie, Movie_Watched, DiscussionPost
+from .models import MovieList, Movie, Movie_Watched, DiscussionPost, Discussion_Likes
 
 from main.forms import CreateNewBio
 from main.models import MovieList, Movie
@@ -17,10 +17,10 @@ from main.models import MovieList, Movie
 class MovieListTestCase(TestCase):
 
     def setUp(self):
-        self.movie_list = MovieList.objects.create(name='My Movie List')
+        self.movie_list = MovieList.objects.create(name='March Movies')
 
     def testMovieListString(self):
-        self.assertEqual(str(self.movie_list), 'My Movie List')
+        self.assertEqual(str(self.movie_list), 'March Movies')
 
     def testMovieListArchivedReg(self):
         self.assertFalse(self.movie_list.archived)
@@ -225,3 +225,92 @@ class GoBackTests(TestCase):
     def testGoBackForInvalidURL(self):
         response = self.client.get('/invalid_url/')
         self.assertEqual(response.status_code, 404)
+
+class toggleLike(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = MyUser.objects.create_user(username='testUsername', email='testUserEmail@gmail.com', password='testPassword')
+        self.movie_list = MovieList.objects.create(name='testMovieList')
+        self.movie = Movie.objects.create(title='testMovie', movie_list=self.movie_list)
+        self.discussion_post = DiscussionPost.objects.create(post='testPost', movie=self.movie, user=self.user)
+        self.url = reverse('toggle_likes', args=[self.movie_list.name, self.movie.title, self.discussion_post.id])
+
+    def testingToggleLikeBTN(self):
+        self.client.force_login(self.user)
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 302)
+        postLiked = Discussion_Likes.objects.get(user=self.user, discussion_post=self.discussion_post)
+        self.assertEqual(postLiked.liked, 0) 
+
+class testDiscussionPost(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = MyUser.objects.create_user(username='testUsername', email='testUserEmail@gmail.com', password='testPassword')
+        self.movie_list = MovieList.objects.create(name='testMovieList')
+        self.movie = Movie.objects.create(title='testMovie', movie_list=self.movie_list)
+        self.discussion_post = DiscussionPost.objects.create(post='testPost', movie=self.movie, user=self.user)
+        self.comment = Comment.objects.create(comment='testPost', discussion_post=self.discussion_post, user=self.user)
+        self.url = reverse('discussionpost', args=[self.movie_list.name, self.movie.title, self.discussion_post.id])
+
+    def testDiscussionPostComment(self):
+        self.client.login(username='testUsername', password='testPassword')
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 302)
+
+class testDiscussionPosts(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = MyUser.objects.create_user(username='testUsername', email='testUserEmail@gmail.com', password='testPassword')
+        self.movie_list = MovieList.objects.create(name='testMovieList')
+        self.movie = Movie.objects.create(title='testMovie', movie_list=self.movie_list)
+        self.discussion_post = DiscussionPost.objects.create(post='testPost', movie=self.movie, user=self.user)
+        self.url = reverse('discussionposts', args=[self.movie_list.name, self.movie.title])
+
+    def testDiscussionPosts(self):
+        self.client.login(username='testUsername', password='testPassword')
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 302)
+
+class InitialRegisterOrLoginViewTestCase(TestCase):
+    def testInitialHomeFirstTime(self):
+        response = self.client.get(reverse('initial_register_or_login'))
+        self.assertEqual(response.status_code, 200)
+
+    def testRegisterLoginTemplate(self):
+        response = self.client.get(reverse('initial_register_or_login'))
+        self.assertTemplateUsed(response, 'main/initial_register_or_login.html')
+
+class MonthViewTestCase(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+        self.MyUser = MyUser.objects.create_user(username='username', email='user@gmail.com', password='password')
+        self.movie_list = MovieList.objects.create(name="March Movies", archived=False)
+
+    def testMonthView(self):
+        self.client.login(email='user@gmail.com', password='password')
+        url = reverse("month", args=[self.movie_list.name])
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "main/month.html")
+        self.assertEqual(response.context["ls"].name, self.movie_list.name)
+        self.assertEqual(response.context["ls"].archived, self.movie_list.archived)
+
+class PopularViewTest(TestCase):
+    def setUp(self):
+        self.MyUser = MyUser.objects.create_user(username='username', email='user@gmail.com', password='password')
+        self.movie_list = MovieList.objects.create(name='January Movies')
+        self.movie1 = Movie.objects.create(title='Red Deer', watched=True, movie_list=self.movie_list)
+        self.movie2 = Movie.objects.create(title='Close', watched=False, movie_list=self.movie_list)
+        self.discussion1 = DiscussionPost.objects.create(movie=self.movie1, user=self.MyUser, post='Awesome movie etc', post_likes=9)
+        self.discussion2 = DiscussionPost.objects.create(movie=self.movie2, user=self.MyUser, post='Another Awesome movie etc', post_likes=6)
+
+    def testPopularView(self):
+        self.client.login(email='user@gmail.com', password='password')
+        url = reverse('popular')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('movie', response.context)
+        self.assertIn('discussion', response.context)
+        self.assertEqual(list(response.context['movie']), [self.movie2, self.movie1])
+        self.assertEqual(list(response.context['discussion']), [self.discussion2, self.discussion1])
