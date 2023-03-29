@@ -314,3 +314,53 @@ class PopularViewTest(TestCase):
         self.assertIn('discussion', response.context)
         self.assertEqual(list(response.context['movie']), [self.movie2, self.movie1])
         self.assertEqual(list(response.context['discussion']), [self.discussion2, self.discussion1])
+
+class ProfileViewTestCase(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+        self.MyUser = MyUser.objects.create_user(username='username', email='user@gmail.com', password='password')
+        self.url = reverse('profile')
+
+    def testProfileWhileLoggedIn(self):
+        self.client.login(email='user@gmail.com', password='password')
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'main/profile.html')
+        self.assertContains(response, 'profile')
+
+class DiscussionLikes(TestCase):
+    def setUp(self):
+        self.testList = MovieList.objects.create(name = "April Movies")
+        self.movie = Movie.objects.create(movie_list = self.testList, title = "Test Movie", synopsis = "This is a synopsis of a Test Movie")
+        self.user = MyUser.objects.create(email = "test@gmail.com", password = "test123", username = "hamza")
+        self.discussionPost = DiscussionPost.objects.create(movie = self.movie, user = self.user, post = "This is a discussion post created for testing.")
+        self.discussionLikes = Discussion_Likes.objects.create(user = self.user, discussion_post = self.discussionPost, liked = True)
+        
+    def testPostLikedByUser(self):
+        self.assertTrue(self.discussionLikes.liked)
+    
+    def testUserWhoLiked(self):
+        self.assertEquals(self.discussionLikes.user, self.user)
+    
+    def testWhichDiscussionPostIsLiked(self):
+        self.assertEquals(self.discussionLikes.discussion_post, self.discussionPost)
+        
+class MovieWatched(TestCase):
+    def setUp(self):
+        self.testList = MovieList.objects.create(name = "April Movies")
+        self.movie = Movie.objects.create(movie_list = self.testList, title = "Test Movie", synopsis = "This is a synopsis of a Test Movie")
+        self.user = MyUser.objects.create(email = "test@gmail.com", password = "test123", username = "hamza")
+        self.movieWatched = Movie_Watched(movie = self.movie, user = self.user, month = self.testList, watched = True)
+    
+    def testIsMovieWatched(self):
+        self.assertTrue(self.movieWatched.watched)
+
+    def testWhichMovieIsWatched(self):
+        self.assertEquals(self.movieWatched.movie, self.movie)
+    
+    def testWhichUserWatchedMovie(self):
+        self.assertEquals(self.movieWatched.user, self.user)
+    
+    def testWhichMonthIsMovieWatched(self):
+        self.assertEquals(self.movieWatched.month, self.testList)
