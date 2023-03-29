@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,12 +21,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y9q6fxpl%cwtu74=y(tfur$j4@ymq0vm+u@ur6-k*9thl=c#!x'
+import os
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '59871EEBC771C715ED529A237E7BAB2C6FEF2E863C739C141F57D17843')
 
+
+DEBUG = False
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+ALLOWED_HOSTS = ['after_image.herokuapp.com']
 
 
 # Application definition
@@ -79,8 +83,12 @@ WSGI_APPLICATION = 'after_image.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd5jo3tmgjnpf4r',
+        'USER': 'gbidafhairhzsq',
+        'PASSWORD': '00dfade6eae74596fd8c7af704ec02c6b12521784ce99b6809b88e4f863d5598',
+        'HOST' : 'ec2-44-215-22-37.compute-1.amazonaws.com',
+        'PORT' : '5432'
     }
 }
 
@@ -119,8 +127,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+
 STATIC_URL = 'static/'
 STATIC_URL = '/static/'
+django_heroku.settings(locals())
+
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
@@ -141,3 +153,9 @@ AUTH_USER_MODEL = 'main.MyUser'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
+
+SECURE_SSL_REDIRECT = True
+
+SESSION_COOKIE_SECURE = True
+
+CSRF_COOKIE_SECURE = True
