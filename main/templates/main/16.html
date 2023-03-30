@@ -7,11 +7,11 @@
 <br>
 <h5>High School</h5>
 
-<p>Drag to scroll ➡️</p>
+<p>⬅️ Drag to scroll ➡️</p>
 
 <body>
 <!-- test123 -->
-<div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+<div id="image-track" data-mouse-down-at="0" data-prev-percentage="0" style="margin-top: 400px;">
     <img class="image" src="https://images.unsplash.com/photo-1604134967494-8a9ed3adea0d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8c2Nob29sfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" draggable="false" />
     <div class="caption">High School is a 1968 American documentary film by Frederick Wiseman that shows a typical day for students and faculty at a Pennsylvanian high school during the late 1960s.</div>
     <img class="image" src="https://images.unsplash.com/photo-1593588332695-cd49488a8ec8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzY5fHxzY2hvb2x8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" draggable="false" />
@@ -49,7 +49,7 @@
         left: 20%;
         top: 160%;
         transform: translate(-30%, -50%); 
-        user-select: none; 
+        user-select: none;
       }
   
       #image-track > .image {
@@ -57,12 +57,15 @@
         height: 56vmin;
         object-fit: cover;
         object-position: 100% center;
+        box-sizing: border-box;
+              
+        border: 5px solid #FAF1F3; ; 
       }
       .caption {
         color: white; /* set the color of the caption text */
         font-size: 1.2rem; /* set the font size of the caption text */
         margin-top: 1rem; /* add some space between the image and caption */
-        transform: translate(-450px, 600px);
+        transform: translate(-400px, 600px);
         width: 400px; /* adjust the width as desired */
        
     }
@@ -101,8 +104,6 @@ const handleOnMove = e => {
   }
 }
 
-/* -- Had to add extra lines for touch events -- */
-
 window.onmousedown = e => handleOnDown(e);
 
 window.ontouchstart = e => handleOnDown(e.touches[0]);
@@ -117,4 +118,4 @@ window.ontouchmove = e => handleOnMove(e.touches[0]);
 </script>
 
 
-<!-- {% endblock %} -->
+{% endblock %}

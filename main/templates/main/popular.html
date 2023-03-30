@@ -1,11 +1,108 @@
 {%extends 'main/base.html'%}
 
 {%block content%}
-<h1>Popular Movies</h1>
-<h3>For Whoever is doing this page, ls is the movielist, movie is an array of movie objects from this month sorted by how much they've been watched and discussion is an array of discussionpost objects from this month sorted by how much they've been liked</h3>
-<h1>{{ls}}</h1>
-<h3>Most Watched Movie</h3>
-{{movie}}
-<h3 style="text-align: center;"> *insert top rated movies here*</h3>
-{{discussion}}
+
+<div class="jumbotron">
+    <div class="container">
+        <h3>Popular</h3><br> </br>
+
+        <h4 >Most Liked Posts</h5>
+
+        {% for d in discussion %}
+            {%if d.post_likes != 0%}
+            <a style="font-size: 16px;" href="{%url 'discussionpost' d.movie.movie_list.name d.movie.title d.id%}">
+                    <div style="text-align: center;">
+                        By: {{d.user}}
+                        <li>{{d.post}}</li>
+                        {{d.post_likes}} Likes <br></br>
+                        Number {{forloop.counter}} Most Liked
+                        <br></br>
+                    </div>
+                </a>
+            {%endif%}
+        {%endfor%}
+        <br></br>
+
+
+        <h4>Most Watched Movies</h4>
+        <div class="container" id="movie-container">
+            <div class="row movie-grid">
+            {% for m in movie %}
+                {%if m.watched != 0%}
+                    <div class=" col-lg-3 movie-card">
+                        <div class="card">
+                            <a href="{% url 'movie' ls m.title %}">
+                                <p>{{m.watched }} Watches</p>
+                                <img src="{{ m.image.url }}" alt="{{ m.title }}" 
+                                style="height: 400px; width: 250px; margin-bottom: 2px; margin-top: 2px;">
+                                <p>{{ m.title }}</p>
+                                <p>Number {{forloop.counter}} Most Watched</p>
+                            </a>
+                        </div>
+                    </div>
+                {%endif%}
+            {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>         
+<style>
+    .movie-card {
+        border-radius: 20px;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        margin-bottom: 25px;
+    }
+
+    .movie-card:hover {
+        transform: scale(1.03);
+    }
+
+    .card {
+        border: none;
+        background: transparent;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+        transform: scale(1.03);
+    }
+
+    h3 {
+        font-family: 'Sora', sans-serif;
+        font-size: 4em;
+        font-weight: 1000;
+        text-shadow: 1px 3px black;
+        text-align: center;
+        color: black;
+    }
+    
+    h4 {
+        font-family: 'Sora', sans-serif;
+        font-size: 2em;
+        font-weight: 100;
+        text-shadow: 1px 2px black;
+        text-align: center;
+        color: black;
+    }
+
+
+    p {
+        font-family: sans-serif;
+        font-size: 20px;
+        text-align: center;
+        color: black;
+    }
+
+    a {
+        font-size: 20px;
+        color: black;
+    }
+    a:hover {
+        color: black;
+    }
+</style>
+
 {%endblock%}

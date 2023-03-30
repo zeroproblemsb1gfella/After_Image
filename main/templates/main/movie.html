@@ -6,6 +6,7 @@
     .jumbotron {
         opacity: 1.0;
         transition: opacity 0.5s;
+        margin-bottom: 0px;
     }
 
     .jumbotron.fade-out {
@@ -40,6 +41,8 @@
                         border: 2px solid #000000;
                         border-radius: 8px;
                         padding: 4px;
+                        right: 0;
+                        margin-right: 400px;
                     }
 
                     .movie-img:hover {
@@ -52,14 +55,15 @@
                         margin-top: -50px;
 
                     }
+
                 </style>
                 <div class="text-center">
                     <form method="POST" action="{% url 'toggle_watched' name title %}">
                         {% csrf_token %}
                         {% if watched.watched %}
-                        <button type="submit" class="btn btn-success">Watched</button>
+                        <button type="submit" class="btn btn-success" style="margin-right: 400px;">Watched</button>
                         {% else %}
-                        <button type="submit" class="btn btn-success">Add To Watched</button>
+                        <button type="submit" class="btn btn-success" style="margin-right: 400px;">Add To Watched</button>
                         {% endif %}
                     </form>
                 </div>
@@ -79,9 +83,9 @@
 
                 <div class="text-center">
                     <h3>
-                        <a href="{% url 'discussionposts' ls.name movie.title %}">Discussion Posts</a>
+                        <a href="{% url 'discussionposts' ls.name movie.title %}" style="margin-right: 400px;">Discussion Posts</a>
                     </h3>
-                    <button onclick="goBack()" class="btn btn-primary">Return to Movies</button>
+                    <button onclick="goBack()" class="btn btn-primary" style="margin-right: 400px;">Return to Movies</button>
                     <script>
                         function goBack() {
                             window.location.href = "{% url 'month' ls.name %}";
@@ -101,12 +105,15 @@
         <p style="color: black;" class="lead">Length: {{ movie.length }} minutes</p>
         <p style="color: black;" class="lead">Synopsis: {{ movie.synopsis }}</p>
         <br>
+        {%if ls.archived == False%}
         <form method="post" action="#" onsubmit="displayMsg()">
             {% csrf_token %}
             <p class="lead" style="color: black;">{{ form.post }}</p>
             <button type="submit" name="save" class="btn btn-primary">Submit Post</button>
         </form>
-
+        {%else%}
+        <h3 style = "padding-bottom : 350px; color: black;">This Movie Is Archived</h3>
+        {%endif%}
         <script>
             function displayMsg() {
                 alert("Post Has Been Successfully Submitted");

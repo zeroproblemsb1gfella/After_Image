@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "extended-cinema-382014",
+  "private_key_id": "221e1bbd37b7f000b44ad6954bcc64c61108fd35",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDZJUEalXCKpetG\nWj3g6b4+faD0QFmOd2pCR2kav2eFKJb6rgdTNaOu4jhFPtEYvLYOAWRdaaNqflm1\n1SvrnFu6CA84LPYLjartgsKwRYiJaHgkFjA5L85txzdCX5jUsU8BLUa37t0/QXWb\nwQw7btuoPubXP/BcgH0yHaHok9nJYX/rwGcKWcn8qVwj73liCI15H7n7eTHCZkuE\nYlJ+TdrIb99iEAv/BLwyj95/dIbpIgV5UNA94AnEH85X0dNOxbzGsElXlYeXVyRP\nPMfCGcLZAaiylrWAFQvg1zrA4g2Q27UAm01ZhxQ+Qqzp4aTBBybVh3/5mc8n7Iab\na/vD7VJFAgMBAAECggEAAgT8LYSdRtTTMtTNBYX2/HrLn+nnS1Fl/hbO7e5AxrbB\nbLRoogf6LTqyXkZ+yFWc9dViexHr8KYbLHs+jNLn8Xt4tMOKSEI5iDryl5QV+H0t\nvNwt96Ivr8quA2KDN9ssSm0C3twMV7XCo7+wXu8hgNeQ6wiPsjSJtYkcA984I8zN\nck3IIFckMwx9tKbI+mce7ql43IzbHepKo6/NRRUAAnSZP3twX+sIDtP1g9Z8xg3R\nhy3O4oUN5qJJlXXq+Zyl8l8iOyo3ZN5K81ef17x34pvvhGDC0Yj+TL/YDEmPjg58\nBHl+A7kHOvx0FJ+HzN8YLR2BVs5wzTS8gvNpe1va8QKBgQDw+SVsezQQ1tPleWex\nZbGmXnNTbQV8KAuxmsY9LDzG41s9Ro9edDLl272AseipggZJIfS9wSIL+SVYnSWd\n6v8Ib5GCZ8ZEf1qehkVFuT+VmbDGehNlHBrpXtv2c4QhwfhFRfsS1xn4sGQYHgdt\nFT/+zTF3TzX8spKVroYoixUbLQKBgQDmr7oW2+XdMHbaXDODcbFGigSYG+f714E4\nRJFkH1dkWL/qGzbQrHXdHlKJkecr7a9WR0IBIP5/SfRHNpOqJE1LibLKK+TeQRHP\nOy4ISdL8SGvr9Z0QAO6nV0oa4B3vVDojg2PAMcPcVe4YBO2SBAaPDvro0s3UtPfG\nopZCn2WieQKBgQDMNxjUGoVBUA47huutlzU6fQjXRqlDUty2IyilZvwKwVrtTwLp\nVShdTCAJFLzMCnkxOSmkNiyYYQiZVHQwpJqFl6eFEFUib5tohPnn4NpV+e2qBoKx\nSWQ1KkLXVYZA5ZV1f50LlmdYLoRlO+2nMD8PvO2S4vopsVwwpbrkWRoF8QKBgQCJ\nSc2q6wW7BKvHOpYhxRjmzR7806bVV6T8sroAZzKgcr0Me1O9DtY6WWBvpRh6KUNv\nSos6lsM/R+kMNKve1yn1Kabw8PyNVRZfSW4U2rKpGAS6cfseWh+uEaH1qqnGFE9h\ncUF9UWCqEa3YN56XhrPMkfK7ezGqRGUtnvdkAO8AqQKBgQCahFn5nC5uhK4cY5rW\n7hTU00HGN+/QRX3ldG8MrbFt4CM72F1jFvraivvIdi1abQtpbylsLcDGQNo93pIG\nWv/atB+wYJj2fSYtE+200GHZNeVubnIsH55DAGAb9LBPAAyIIW7UTm1yY8Zm7LYa\nxn4mqUPAm29v3N7E3yTQB3Iyyw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "afterimage-bucket@extended-cinema-382014.iam.gserviceaccount.com",
+  "client_id": "103234239052542153800",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/afterimage-bucket%40extended-cinema-382014.iam.gserviceaccount.com"
+}

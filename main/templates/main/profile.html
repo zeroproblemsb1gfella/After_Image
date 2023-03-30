@@ -1,57 +1,62 @@
 {%extends 'main/base.html'%}
 
 {%block content%}
-<h3>Profile</h3><br> </br>
-<div style = "text-align: center;">
-    <p1>{{ user.profile }}<p1>
-    <br></br>
-</div>
 
-<div style="text-align: center;">
-    <form method="post" action="#">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit" name="save" class="btn btn-primary"> Create New</button>
-    </form>
-</div>
-<br></br>
+<div class="jumbotron">
+    <div class="container">
+        <h3>Profile</h3><br> </br>
+        <div style = "text-align: center;">
+            <p1 style="font-size: 20px; color: black;" >{{ user.profile }}<p1>
+            <br></br>
+        </div>
 
-<h4>Liked Discussion Posts</h5>
+        <div style="text-align: center;">
+            <form method="post" action="#">
+                {% csrf_token %}
+                <p1 style = "color: black;">{{ form }}</p1>
+                <button type="submit" name="save" class="btn btn-primary"> Create New</button>
+            </form>
+        </div>
+        <br></br>
 
-{% for liked in user.discussion_likes_set.all %}
-    {%if liked.liked == True%}
-    <a style="font-size: 16px;" href="{%url 'discussionpost' liked.discussion_post.movie.movie_list.name liked.discussion_post.movie.title liked.discussion_post.id%}">
-            <div style="text-align: center;">
-                By: {{liked.discussion_post.user}}
-                <li>{{liked.discussion_post.post}}</li>
-                {{liked.discussion_post.post_likes}} Likes
-                <br></br>
+        <h4 >Liked Discussion Posts</h5>
+
+        {% for liked in user.discussion_likes_set.all %}
+            {%if liked.liked == True%}
+            <a style="font-size: 16px;" href="{%url 'discussionpost' liked.discussion_post.movie.movie_list.name liked.discussion_post.movie.title liked.discussion_post.id%}">
+                    <div style="text-align: center;">
+                        By: {{liked.discussion_post.user}}
+                        <li>{{liked.discussion_post.post}}</li>
+                        {{liked.discussion_post.post_likes}} Likes
+                        <br></br>
+                    </div>
+                </a>
+            {%endif%}
+        {%endfor%}
+        <br></br>
+
+
+        <h4>Watched Movies</h4>
+        <div class="container" id="movie-container">
+            <div class="row movie-grid">
+            {% for watched in user.movie_watched_set.all %}
+                {%if watched.watched == True%}
+                    <div class=" col-lg-3 movie-card">
+                        <div class="card">
+                            <a href="{% url 'movie' watched.month watched.movie.title %}">
+                                <p>{{ watched.movie.watched }} Watches</p>
+                                <img src="{{ watched.movie.image.url }}" alt="{{ watched.movie.title }}" 
+                                style="height: 400px; width: 250px; margin-bottom: 2px; margin-top: 2px;">
+                                <p>{{ watched.movie.title }}</p>
+                            </a>
+                        </div>
+                    </div>
+                {%endif%}
+            {%endfor%}
             </div>
-        </a>
-    {%endif%}
-{%endfor%}
-<br></br>
-
-
-<h4>Watched Movies</h4>
-<div class="container" id="movie-container">
-    <div class="row movie-grid">
-    {% for watched in user.movie_watched_set.all %}
-        {%if watched.watched == True%}
-            <div class=" col-lg-3 movie-card">
-                <div class="card">
-                    <a href="{% url 'movie' watched.month watched.movie.title %}">
-                        <p>{{ watched.movie.watched }} Watches</p>
-                        <img src="{{ watched.movie.image.url }}" alt="{{ watched.movie.title }}" 
-                        style="height: 400px; width: 250px; margin-bottom: 2px; margin-top: 2px;">
-                        <p>{{ watched.movie.title }}</p>
-                    </a>
-                </div>
-            </div>
-        {%endif%}
-    {%endfor%}
+        </div>
     </div>
-</div>        
+</div>         
 <style>
     .movie-card {
         border-radius: 20px;
@@ -82,14 +87,16 @@
         font-weight: 1000;
         text-shadow: 1px 3px black;
         text-align: center;
+        color: black;
     }
     
     h4 {
         font-family: 'Sora', sans-serif;
         font-size: 2em;
         font-weight: 100;
-        text-shadow: 1px 3px black;
+        text-shadow: 1px 2px black;
         text-align: center;
+        color: black;
     }
 
 
@@ -97,18 +104,16 @@
         font-family: sans-serif;
         font-size: 20px;
         text-align: center;
-        color: white;
+        color: black;
     }
 
     a {
         font-size: 20px;
-        color: white;
+        color: black;
     }
     a:hover {
-        color: white;
+        color: black;
     }
 </style>
-
-        
 
 {%endblock%}

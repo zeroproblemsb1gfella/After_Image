@@ -12,10 +12,15 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 import django_heroku
 from pathlib import Path
+from google.oauth2 import service_account
+
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+KEY_FILE_PATH = os.path.join(BASE_DIR, 'extended-cinema-382014-221e1bbd37b7.json')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -44,17 +49,20 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'crispy_forms',
     'main.apps.MainConfig',
-    'register.apps.RegisterConfig'
+    'register.apps.RegisterConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'after_image.urls'
@@ -126,7 +134,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 STATIC_URL = 'static/'
@@ -134,10 +141,25 @@ STATIC_URL = '/static/'
 django_heroku.settings(locals())
 
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+STATICFILES_DIRS = [(os.path.join(BASE_DIR, 'static'))]
 
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / "media"
+
+
+django_heroku.settings(locals())
+
+GS_BUCKET_NAME = "afterimage"
+GS_PROJECT_ID = "extended-cinema-382014"
+
+DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(KEY_FILE_PATH)
+MEDIS_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
+
+# DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+# GS_BUCKET_NAME='afterimage'
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
@@ -151,8 +173,7 @@ LOGOUT_REDIRECT_URL = "/."
 
 AUTH_USER_MODEL = 'main.MyUser'
 
-MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_URL = '/media/'
+
 
 SECURE_SSL_REDIRECT = True
 
